@@ -156,3 +156,130 @@ footer {
 		left: 0;
 	}
 }
+
+.background { 
+	width:100%;
+	height:300px;
+	background-image:url(assets/images/back.png);
+	filter: brightness(90%);
+	background-repeat:no-repeat;
+	background-size:auto;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.search-container {
+	max-width: 800px;
+	display: flex;
+	flex-direction: column; /* Add this line */
+	align-items: flex-start; /* Update this line */
+	margin: auto;
+	text-align: center;	
+  }
+
+  .search-bar {
+	display: flex; /* Add this line */
+	align-items: center; /* Add this line */
+	margin-bottom: 8px; /* Add this line */
+  }
+
+.search-input {
+	flex-grow: 1;
+	width: 400px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-bottom: 0px; 
+  }
+
+.search-button {
+	padding: 20px 40px;
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-bottom: 0px;
+  }
+
+  .rent-select {
+	height: 55px;
+	width: 120px;
+	padding: 12px;
+	background-color: var(--primary-color);
+	filter: opacity(95%);
+	font-size: 20px;
+	color: #fff;
+	appearance: none;
+	padding-right: 30px; 
+
+	
+	background-image: url("assets/icons/DownArrow.png"); /* Replace with the path to your custom icon */
+	background-position: right center; /* Position the icon on the right */
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+  }
+
+  .filter-select {
+	width: 685px;
+	padding: 12px;
+	background-color: var(--secondary-color);
+	filter: opacity(95%);
+	font-size: 20px;
+	color: #fff;
+	appearance: none; /* Remove default appearance */
+	background-image: url("assets/icons/Filter.png"); /* Replace with the path to your custom icon */
+	background-position: right center; /* Position the icon on the right */
+	background-repeat: no-repeat;
+	background-size: 40px 40px;
+	padding-right: 30px; /* Adjust the padding to make room for the icon */
+  }
+
+
+  .element-row
+  {
+	display: inline;
+  }
+
+  .element-container {
+	display: flex;
+	flex-direction: column; /* Add this line */
+	align-items: center;
+	max-width: 800px;
+	padding-inline: 30px;
+  }
+
+  .element-image {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+  }
+
+  .element-text {
+	font-size: 14px;
+	margin-left: 2px;
+  }
+
+  .element-icons {
+	display: flex;
+	align-items: center;
+  }
+
+  .element-icons i {
+	margin-left: 15px;
+	margin-right: 10px;
+	font-size: 24px;
+  }
+
+	.container {
+		padding-top: 20px;
+		display: flex;
+		justify-content: center;
+	}
+  
+	.element-container:not(:last-child) {
+		margin-right: 16px;
+	}

@@ -1,0 +1,88 @@
+.botaoDropDown.botaoDropDown {
+  position: absolute;
+  left: 94.7259%;
+  right: 1.6655%;
+  top: 21.1111%;
+  bottom: 21.1111%;
+  width: initial;
+  height: initial;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.icon2 {
+  width: 100%;
+  height: 100%;
+}
+.icon3 {
+  width: 100%;
+  height: 100%;
+}
+.root {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 1441px;
+  height: 90px;
+  align-items: flex-start;
+}
+.vector1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: visible;
+}
+.icon4 {
+  width: 100%;
+  height: 100%;
+}
+.agents {
+  color: #fff;
+  font-size: 40px;
+  font-family: DM Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 45.8709%;
+  right: 43.8584%;
+  top: 16.6667%;
+  bottom: 21.1111%;
+  flex-direction: column;
+}
+.signIn {
+  color: #fff;
+  font-size: 40px;
+  font-family: DM Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 83.6225%;
+  right: 6.1069%;
+  top: 21.1111%;
+  bottom: 16.6667%;
+  flex-direction: column;
+}
+.ousadiaImobiliaria {
+  color: #fff;
+  font-size: 20px;
+  font-family: DM Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 7.8071%;
+  right: 81.6447%;
+  top: 21.6667%;
+  bottom: 20.5556%;
+  flex-direction: column;
+}
+.image1 {
+  position: absolute;
+  left: 0.9368%;
+  right: 93.7196%;
+  top: 9.4444%;
+  bottom: 9.4444%;
+  background-image:/* webpackIgnore: true */ url('/assets/image1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
