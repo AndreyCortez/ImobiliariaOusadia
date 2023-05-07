@@ -6,7 +6,7 @@ Andrey Cortez Rufino, nº usp
 Daniel Arrais Martins, nº usp 11819445
 Mateus de Souza Santos, nº usp 11366913
 
-## Requesitos
+## Requisitos
 
 Além dos requisitos expressos na descrição do projeto, temos:
 O sistema deve permitir que o usuário consiga fazer busca de locações, utilizando filtros para obter melhores resultados.
