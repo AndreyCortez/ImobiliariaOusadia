@@ -1,0 +1,28 @@
+.information {
+  flex: 1;
+  position: relative;
+  padding-left: 40px; /* Adjust the value to increase or decrease the space */
+}
+
+.information::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background-color: #000;
+}
+
+
+.information .property {
+  display: flex;
+}
+
+.information .property h3 {
+  margin: 0;
+}
+
+.information .property div {
+  margin-right: 20px;
+}

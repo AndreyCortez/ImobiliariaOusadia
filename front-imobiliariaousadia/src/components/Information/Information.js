@@ -26,14 +26,11 @@ const Information = () => {
     </h2>
 
     
-    <div class="constainer">
       <div class="description">
       <p>
       {string}
-
       </p>
        </div>
-    </div>
   
 
     </>
