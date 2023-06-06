@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage.js'
 import HousePage from './pages/HousePage.js';
 import SellPage from './pages/SellPage.js';
 import reportWebVitals from './reportWebVitals';
+import AboutUs from './pages/AboutUs';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
