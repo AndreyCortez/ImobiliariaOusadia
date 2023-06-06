@@ -1,5 +1,46 @@
-.gallery-image {
-  height: 350px; /* Set the desired height for the images */
+.house-container {
+  margin: 20px auto;
+  max-width: 1200px;
   width: 100%;
-  object-fit: cover;
+  font-family: "DM Sans", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.house-container .house-details {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .house-container .house-details {
+    width: calc(50% - 10px);
+  }
+}
+
+
+.house-image {
+  height: 250px;
+  width: 350px;
+}
+
+.house-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.icon svg {
+  margin-right: 5px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
 }
