@@ -5,12 +5,13 @@ import Navbar from '../components/Navbar/Navbar.js';
 import ImgContainer from '../components/ImgContainer/ImgContainer.js';
 
 import "./HomePage.js"
+import HeaderPage from '../components/HeaderPage/HeaderPage.js';
 
 const SellPage = () => {
   
   const houseDetails = [
     {
-      image: 'houseFront1.jpg',
+      image: 'Image1',
       city: 'New York',
       address: '123 Broadway',
       bathrooms: 2,
@@ -18,7 +19,7 @@ const SellPage = () => {
       garage: 1
     },
     {
-      image: 'houseFront1.jpg',
+      image: 'Image2',
       city: 'Los Angeles',
       address: '456 Hollywood Blvd',
       bathrooms: 3,
@@ -26,7 +27,7 @@ const SellPage = () => {
       garage: 2
     },
     {
-      image: 'houseFront1.jpg',
+      image: 'Image3',
       city: 'Chicago',
       address: '789 Magnolia Ave',
       bathrooms: 2,
@@ -34,7 +35,7 @@ const SellPage = () => {
       garage: 0
     },
     {
-      image: 'houseFront1.jpg',
+      image: 'Image4',
       city: 'San Francisco',
       address: '321 Golden Gate St',
       bathrooms: 4,
@@ -42,7 +43,7 @@ const SellPage = () => {
       garage: 3
     },
     {
-      image: 'houseFront1.jpg',
+      image: 'Image5',
       city: 'Miami',
       address: '987 Ocean Drive',
       bathrooms: 3,
@@ -50,7 +51,7 @@ const SellPage = () => {
       garage: 2
     },
     {
-      image: 'houseFront1.jpg',
+      image: 'Image6',
       city: 'Seattle',
       address: '555 Rainier Ave',
       bathrooms: 2,
@@ -58,7 +59,7 @@ const SellPage = () => {
       garage: 1
     },
     {
-      image: 'houseFront1.jpg',
+      image: 'Image7',
       city: 'Boston',
       address: '222 Beacon St',
       bathrooms: 3,
@@ -66,7 +67,7 @@ const SellPage = () => {
       garage: 2
     },
     {
-      image: 'houseFront1.jpg',
+      image: 'Image8',
       city: 'Denver',
       address: '777 Rocky Road',
       bathrooms: 2,
@@ -74,7 +75,7 @@ const SellPage = () => {
       garage: 1
     },
     {
-      image: 'houseFront1.jpg',
+      image: 'Image9',
       city: 'Austin',
       address: '888 Lakeview Ave',
       bathrooms: 3,
@@ -86,7 +87,10 @@ const SellPage = () => {
 
   return (
     <div>
-      <h1>House Details</h1>
+      <Navbar/>
+      <HeaderPage
+        title="Buy your House"
+      />
       <div className="container">
         <div className="house-list">
           {houseDetails.map((house, index) => (
@@ -102,8 +106,9 @@ const SellPage = () => {
           ))}
         </div>
       </div>
+      <Footer/>
       </div>
-      
+     
   );
 };
 

@@ -1,4 +1,15 @@
 .description {
   flex: 1;
   margin-right: 20px;
+  margin-left: 40px;
+}
+
+.p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.title{
+  margin-left: 40px;
+  font-size: medium;
 }

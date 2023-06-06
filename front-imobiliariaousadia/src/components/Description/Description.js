@@ -9,18 +9,19 @@ const Description = () => {
   return (
     <div className="information">
     <div className="property">
-      <div>
-        <h3>Property information</h3>
-        <h3>Property ID</h3>
-        <h3>Property type</h3>
-        <h3>Land size</h3>
-      </div>
-      <div>
-        <h3>L22461995</h3>
-        <h3>House</h3>
-        <h3>731.0 squareMeter</h3>
-      </div>
+    <div>
+      <h3>Property information</h3>
+      <p>Property ID</p>
+      <p>Property type</p>
+      <p>Land size</p>
     </div>
+    <div className='values'>
+      <p>L22461995</p>
+      <p>House</p>
+      <p>731.0 squareMeter</p>
+    </div>
+</div>
+
   </div>
   );
 };

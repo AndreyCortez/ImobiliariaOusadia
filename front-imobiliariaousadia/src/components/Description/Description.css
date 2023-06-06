@@ -1,6 +1,7 @@
 .information {
+  margin-top: 60px;
   flex: 1;
-  position: relative;
+  position: absolute;
   padding-left: 40px; /* Adjust the value to increase or decrease the space */
 }
 
@@ -12,17 +13,29 @@
   left: 0;
   width: 1px;
   background-color: #000;
+  height: 330px;
 }
-
 
 .information .property {
   display: flex;
 }
 
 .information .property h3 {
-  margin: 0;
+  margin-top: 0;
+  margin-right: 20px;
 }
 
 .information .property div {
+  display: flex;
+  flex-direction: column;
+}
+
+.information .property p {
+  margin: 0;
   margin-right: 20px;
+  line-height: 1.5;
+}
+
+.information .values {
+  margin-top: 40px;
 }
