@@ -7,12 +7,16 @@ import SellPage from './pages/SellPage.js';
 import reportWebVitals from './reportWebVitals';
 import AboutUs from './pages/AboutUs';
 import Agents from './pages/Agents'
+import AgentPage from './pages/Agent';
+
+import agentDetails from './data'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HomePage/>
+    <AgentPage
+    AgentId={0}/>
   </React.StrictMode>
 );
 
