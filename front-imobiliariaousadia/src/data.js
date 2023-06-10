@@ -40,7 +40,7 @@ export const agentDetails = [
   ];
   
 export const houseDetails = [
-    { image: houseimage1, city: 'New York', address: '123 Broadway', bathrooms: 2, bedrooms: 3, garage: 1 },
+    { image: houseimage8, city: 'New York', address: '123 Broadway', bathrooms: 2, bedrooms: 3, garage: 1 },
     { image: houseimage2, city: 'Los Angeles', address: '456 Hollywood Blvd', bathrooms: 3, bedrooms: 4, garage: 2 },
     { image: houseimage3, city: 'Chicago', address: '789 Magnolia Ave', bathrooms: 2, bedrooms: 2, garage: 0 },
     { image: houseimage4, city: 'San Francisco', address: '321 Golden Gate St', bathrooms: 4, bedrooms: 5, garage: 3 },
