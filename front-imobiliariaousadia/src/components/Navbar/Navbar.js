@@ -23,11 +23,11 @@ const Navbar = () => {
 
       <ul className={`nav-NavLinks ${showMenu ? 'show' : ''}`}>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><a href="/">Sell</a></li>
+        <li><NavLink to="/sell">Sell</NavLink></li>
         <li><NavLink to="/aboutus">About Us</NavLink></li>
-        <li><a href="/">Buy</a></li>
-        <li><a href="/">Agents</a></li>
-        <li><a href="/">Sign In</a></li>
+        <li><NavLink to="/buy">Buy</NavLink></li>
+        <li><NavLink to="/agents">Agents</NavLink></li>
+        <li><NavLink to="/signin">Sign In</NavLink></li>
       </ul>
     </nav>
   );

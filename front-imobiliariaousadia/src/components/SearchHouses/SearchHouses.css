@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&display=swap');
+
+.search-houses-container {
+  width: 720px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buy-button {
+  display: flex;
+  align-items: center;
+}
+
+
+.buy-button button {
+  width: 150px;
+  height: 65px;
+  background-color: #002366;
+  border: none;
+  border-radius: 0;
+  text-align: center;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 36px;
+  opacity: 1;
+}
+
+
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.search-input {
+  flex: 1;
+  width: 500px;
+  height: 65px;
+  background-color: white;
+  border: none;
+  border-radius: 0;
+  padding: 0 10px;
+  font-size: 36px;
+  color: #333;
+}
+
+.search-input::placeholder {
+  color: #666;
+  font-size: 36px;
+}
+
+.search-button {
+  width: 70px;
+  height: 65px;
+  background-color: #002366;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.search-button svg {
+  width: 50px; /* Adjust width to 60px */
+  height: 50px; /* Adjust height to 60px */
+}
+
+.filters-button {
+  width: 720px;
+  height: 75px;
+  background-color: #0F52BA;
+  opacity: 0.95;
+  border: none;
+  border-radius: 0;
+  text-align: center;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filters-button svg {
+  margin-right: 10px;
+}
+With this change, the filter icon should be centered vertically within the "Filters" button. The display: flex, align-items: center, and justify-content: center properties are added to the .filters-button class to achieve the desired centering effect. Additionally, the margin-right: 10px property is added to create a small space between the filter icon and the text.
+
+If you have any further questions, feel free to ask!
+
+
+
+
+
+
+
+
+.filters-button::before {
+  content: "FILTERS";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
