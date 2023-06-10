@@ -7,6 +7,7 @@ import Profile from '../pages/Profile';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AgentPage from '../pages/Agent';
 import ManageLocation from '../pages/ManageLocation';
+import AdminPage from '../pages/AdminPage';
 
 const App = () =>{
   return(
@@ -20,6 +21,7 @@ const App = () =>{
         <Route path="/managelocation" element={<ManageLocation/>} />
         <Route path="/profile" element={<Profile UserId = {1}/>} />
         <Route path="/agent" element={<AgentPage AgentId = {0} />}/>
+        <Route path="/adminpage" element={<AdminPage AdminId={0}/>}/>
       </Routes>
     </BrowserRouter>
     </>

@@ -1,0 +1,83 @@
+.page-container
+{
+    display: flex;
+    height: 741px;
+}
+
+.admin-options
+{
+    padding: 100px;
+    width: 1400px;
+    text-align: center;
+    display: block;
+    background-color: rgba(15, 82, 186, 0.2); 
+    margin: 10px;
+}
+
+.admin-profile {
+
+    padding: 10px;
+    background-color: rgba(15, 82, 186, 0.5); 
+    display: block;
+    margin: 10px;
+}
+
+hr{
+    height: 1px;
+    color: black;
+    border-bottom-color: black;
+    background-color: black;
+}
+
+.admin-image
+{
+    width: 400px;
+    height: 400px;
+}
+
+
+.option-button {
+    background-color:rgba(15, 82, 186, 0.9);
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:23px;
+    font-weight:bold;
+    border: 0px;
+    margin: 20px;
+    padding: 13px ;
+    padding-inline: 20px;
+    width: 300px;
+  }
+  .option-button:hover {
+    background-color:#408c99;
+  }
+  .option-button:active {
+    position:relative;
+    top:1px;
+  }
+  
+
+  .edit-button {
+    background-color: white;
+    display:inline-block;
+    cursor:pointer;
+    color: black;
+    font-family:Arial;
+    font-size:23px;
+    font-weight:bold;
+    border-color: black;
+    margin: 20px;
+    padding: 13px ;
+    padding-inline: 20px;
+    width: 300px;
+  }
+  .edit-button:hover {
+    background-color:#408c99;
+  }
+  .edit-button:active {
+    position:relative;
+    top:1px;
+  }
+  
