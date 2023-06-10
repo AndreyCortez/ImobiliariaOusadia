@@ -1,29 +1,45 @@
 .agent-container {
-    width: 1000px;
+    width: auto;
     display: flex;
-    margin: 60px;
+    /* align-items: center; */
+    justify-self: center;
+    margin-inline: 350px;
+    margin-top: 100px;
     /* justify-content: center; */
   }
   
   .agent-data {
-    display: flex;
+    display: block;
     flex-direction: row;
     align-items: center;
-    margin-right: 20px;
+    margin: 40px;
+    height: 300px;
+    width: 400px;
   }
   
   .awards {
-    display: flex;
+    text-align: center;
+    display: block;
     flex-direction: row;
     align-items: center;
+    margin-left: 40px;
   }
 
-
-h2 {
-    text-align: center;
+  .awards-img{
+    max-width: 200px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
   }
+
+  p{
+    font-size: 10px;
+  }
+
 
 .agent-image{
+    width: 250px;
+    height: auto;
     display: flex;
     flex-direction: row;
 }
