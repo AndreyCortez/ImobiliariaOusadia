@@ -26,28 +26,34 @@ A Ousadia Imobiliária é uma empresa fictícia especializada em serviços de co
 + Informações sobre a empresa: No site da Ousadia Imobiliária, você pode encontrar informações sobre nossa empresa, bem como nossos valores e missão. Queremos que nossos clientes saibam que podem confiar em nós para fornecer serviços de corretagem de imóveis de alta qualidade e éticos.
 
 ## Banco de Dados
-O projeto utiliza um banco de dados para armazenar as informações relacionadas aos usuários, corretores, casas vendidas e detalhes das casas disponíveis. A estrutura do banco de dados é a seguinte:
+O projeto utiliza um banco de dados para armazenar as informações relacionadas aos imóveis e transações. A tabela utilizada contém os seguintes campos:
 
-1. Tabela "usuario":
++ **Usuario**: cpf, nome, email, senha.
++ **Corretor**: cpf, nome, email, senha.
++ **CasaVendida**: cpf_corretor, id_casa.
++ **Casa**: id, quartos, banheiros, garagem, valor_estimado, status, CPF_corretor, descrição, endereço.
++ **Transação**: id_casa, valor_pago, forma_pagamento.
+
+1. **Tabela "usuario"**:
 
 + cpf (chave primária): CPF do usuário
 + nome: Nome do usuário
 + email: Email do usuário
 + senha: Senha do usuário
 
-2. Tabela "corretor":
+2. **Tabela "corretor"**:
 
 + cpf (chave primária): CPF do corretor
 + nome: Nome do corretor
 + email: Email do corretor
 + senha: Senha do corretor
 
-3. Tabela "casaVendida":
+3. **Tabela "casaVendida"**:
 
 + cpf_corretor (chave estrangeira): CPF do corretor responsável pela venda da casa
 + id_casa (chave estrangeira): ID da casa vendida
 
-4. Tabela "casa":
+4. **Tabela "casa"**:
 
 + id (chave primária): ID da casa
 + quartos: Número de quartos na casa
@@ -59,6 +65,10 @@ O projeto utiliza um banco de dados para armazenar as informações relacionadas
 + descrição: Descrição detalhada da casa
 + endereço: Endereço da casa
 
+5. **Tabela "transação"**:
++ id (chave primaria): ID da casa
++ valor : valor pago pelo comprador
++ pagamento: forma de pagamento do comprador
 
 
 ## Diagrama    
@@ -86,7 +96,21 @@ O plano de teste visa garantir a funcionalidade correta e a experiência do usu�
 5. Navegação pela barra de navegação: Testar a navegação pelas páginas da barra de navegação, como "Home", "About Us" e "Agents". Verificar se o usuário pode acessar essas páginas sem precisar estar logado. Será verificado se o redirecionamento ocorre corretamente e se o conteúdo das páginas é exibido corretamente.
 
 Esses testes garantirão que o ciclo principal de uso do aplicativo, desde o login até a realização de uma oferta em uma casa, seja funcional e forneça uma boa experiência do usuário. Além disso, será verificado se a navegação pelas páginas da barra de navegação está correta e se o acesso a informações adicionais, como "About Us" e "Agents", está disponível mesmo sem estar logado.
+
 ## Resultados de Teste
+Após a execução dos testes, os resultados obtidos foram os seguintes:
+
+1. Login: O teste de login foi bem-sucedido. O usuário conseguiu fazer login com sucesso utilizando as informações corretas de email e senha. O redirecionamento para a página inicial ocorreu conforme esperado.
+
+2. Acesso à página "Sell": O acesso à página "Sell" foi realizado sem problemas. O usuário logado conseguiu acessar a página e visualizar todas as informações necessárias para criar um anúncio de venda.
+
+3. Acesso a uma casa: O teste de acesso aos detalhes de uma casa disponível na página "Sell" foi concluído com sucesso. O usuário conseguiu visualizar todas as informações completas da casa, incluindo descrição, número de quartos, banheiros, garagem e valor estimado.
+
+4. Fazer uma oferta: O teste de fazer uma oferta em uma casa foi concluído com sucesso. O usuário conseguiu inserir um valor de oferta e enviar a oferta com êxito. A confirmação da oferta foi exibida corretamente.
+
+5. Navegação pela barra de navegação: O teste de navegação pelas páginas da barra de navegação também foi bem-sucedido. O usuário pôde acessar as páginas "Home", "About Us" e "Agents" sem precisar estar logado. O redirecionamento ocorreu conforme esperado e o conteúdo das páginas foi exibido corretamente.
+
+6. Com base nos resultados dos testes, pode-se afirmar que o aplicativo permite que o usuário acesse as páginas solicitadas no plano de teste e realize com completude o ciclo do usuário, desde o login até a realização de uma oferta em uma casa. Além disso, a navegação pelas páginas da barra de navegação está funcionando corretamente, permitindo acesso às informações adicionais mesmo sem estar logado.
 
 ## Procedimento de Build
 
