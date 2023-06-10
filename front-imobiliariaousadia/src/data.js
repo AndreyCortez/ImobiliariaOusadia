@@ -28,6 +28,16 @@ export const agentDetails = [
     { image: agentimage6, name: "Sophia Chen", email: "sophiachen@example.com", telefone: "6666666-66" },
     { image: agentimage7, name: "Alexandra Lee", email: "alexandralee@example.com", telefone: "7777777-77" },
   ];
+
+  export const userDetails = [
+    { image: agentimage1, name: "John Doe", email: "johndoe@example.com", telefone: "1111111-11" },
+    { image: agentimage2, name: "Jane Smith", email: "janesmith@example.com", telefone: "2222222-22" },
+    { image: agentimage3, name: "Robert Johnson", email: "robertjohnson@example.com", telefone: "3333333-33" },
+    { image: agentimage4, name: "Maria Garcia", email: "mariagarcia@example.com", telefone: "4444444-44" },
+    { image: agentimage5, name: "Mohammed Ahmed", email: "mohammedahmed@example.com", telefone: "5555555-55" },
+    { image: agentimage6, name: "Sophia Chen", email: "sophiachen@example.com", telefone: "6666666-66" },
+    { image: agentimage7, name: "Alexandra Lee", email: "alexandralee@example.com", telefone: "7777777-77" },
+  ];
   
 export const houseDetails = [
     { image: houseimage1, city: 'New York', address: '123 Broadway', bathrooms: 2, bedrooms: 3, garage: 1 },
