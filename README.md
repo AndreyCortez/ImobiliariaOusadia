@@ -2,9 +2,9 @@
 
 Este repositorio é destinado para o projeto desenvolvido na disciplina Introdução ao Desenvolvimento Web ministrada pelo professor Dilvan de Abreu Moreira. Para o desenvolvimento do projeto houve a participação dos alunos:
 
-Andrey Cortez Rufino, nº usp
-Daniel Arrais Martins, nº usp 11819445
-Mateus de Souza Santos, nº usp 11366913
++ Andrey Cortez Rufino, nº usp 11819487
++ Daniel Arrais Martins, nº usp 11819445
++ Mateus de Souza Santos, nº usp 11366913
 
 ## Requisitos
 
@@ -68,9 +68,24 @@ Para visualizar o mockup das páginas basta acessar: https://www.figma.com/file/
 
 
 ## Comentários sobre o código
+O projeto utiliza a biblioteca React para desenvolver a interface do usuário, seguindo uma abordagem de componentização. Cada página do aplicativo é tratada como um componente dentro de um "app", e componentes internos são utilizados para facilitar a reutilização em outras páginas. Isso resulta em um código mais organizado, legível e reciclável, além de proporcionar escalabilidade ao projeto.
+
+A abordagem de componentização adotada no projeto permite a criação de componentes reutilizáveis, facilitando a manutenção e adição de novas funcionalidades. A separação da lógica e da apresentação em componentes distintos traz benefícios como modularidade, testabilidade e escalabilidade do código.
 
 ## Plano de Teste
+O plano de teste visa garantir a funcionalidade correta e a experiência do usuário durante o ciclo principal de uso do aplicativo, bem como a navegação pelas páginas da barra de navegação.
 
+1. Login: O teste consiste em verificar se o usuário pode fazer login com sucesso. Será verificado se as informações de login (email e senha) são aceitas corretamente e se o redirecionamento para a página inicial ocorre conforme esperado.
+
+2. Acesso à página "Sell": Verificar se o usuário logado pode acessar a página "Sell" sem problemas. Será verificado se o redirecionamento ocorre corretamente e se a página é exibida com todas as informações necessárias para criar um anúncio de venda.
+
+3. Acesso a uma casa: O teste envolve acessar os detalhes de uma casa disponível na página "Sell". Será verificado se o usuário pode visualizar as informações completas da casa, incluindo descrição, número de quartos, banheiros, garagem e valor estimado.
+
+4. Fazer uma oferta: Verificar se o usuário pode fazer uma oferta em uma casa. Será verificado se o usuário pode inserir um valor de oferta e enviar a oferta com sucesso. Além disso, será verificado se a confirmação da oferta é exibida corretamente.
+
+5. Navegação pela barra de navegação: Testar a navegação pelas páginas da barra de navegação, como "Home", "About Us" e "Agents". Verificar se o usuário pode acessar essas páginas sem precisar estar logado. Será verificado se o redirecionamento ocorre corretamente e se o conteúdo das páginas é exibido corretamente.
+
+Esses testes garantirão que o ciclo principal de uso do aplicativo, desde o login até a realização de uma oferta em uma casa, seja funcional e forneça uma boa experiência do usuário. Além disso, será verificado se a navegação pelas páginas da barra de navegação está correta e se o acesso a informações adicionais, como "About Us" e "Agents", está disponível mesmo sem estar logado.
 ## Resultados de Teste
 
 ## Procedimento de Build
