@@ -1,6 +1,7 @@
 .apraisals-container {
     display: block;
-    width: 1200px;
+    width: 1600px;
+    text-align: center;
 }
 
 .page-container
@@ -17,14 +18,17 @@
 }
 
 .profile-container p {
-    font-size: 22px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    font-size: 15px;
 }
 
 .profile-image 
 {
-
-  width: 300px;
-  height: 300px;
+    margin-left: 50px;
+  width: 200px;
+  height: 200px;
     border-radius: 50%;
   }
 
@@ -33,3 +37,26 @@
     height:1200px;
     margin: 20px;
 }
+
+.edit-button {
+    background-color: white;
+    display:inline-block;
+    cursor:pointer;
+    color: black;
+    font-family:Arial;
+    font-size:23px;
+    font-weight:bold;
+    border-color: black;
+    margin: 20px;
+    padding: 13px ;
+    padding-inline: 20px;
+    width: 300px;
+  }
+  .edit-button:hover {
+    background-color:#408c99;
+  }
+  .edit-button:active {
+    position:relative;
+    top:1px;
+  }
+  

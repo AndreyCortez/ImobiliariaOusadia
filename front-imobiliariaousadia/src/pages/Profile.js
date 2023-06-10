@@ -7,7 +7,7 @@ import ImgContainer from '../components/ImgContainer/ImgContainer.js';
 import './Profile.css'
 
 import { houseDetails, userDetails } from '../data.js';
-import { FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaEnvelope, FaPencilAlt, FaPhone } from 'react-icons/fa';
 
 const Profile = ({UserId}) => {
     let user = userDetails[UserId];
@@ -18,14 +18,13 @@ const Profile = ({UserId}) => {
 
         <HeaderPage title={'User Profile'}/>
       
-      <div className='page-container'>
+        <div className='page-container'>
         <div className='apraisals-container'>
-      <h1>My Apraisals</h1>
-      {houseDetails.map((house, index) => (
-            <ImgContainer houseDetails = {house}
-            />
-          ))}
-          </div>
+            <h1>My Apraisals</h1>
+            {houseDetails.map((house, index) => (
+                <ImgContainer houseDetails = {house}/>
+            ))}
+        </div>
 
         <div className='vline'></div>
 
@@ -34,11 +33,12 @@ const Profile = ({UserId}) => {
         <h2>{user.name}</h2>
         
         <p><FaEnvelope /> {user.email}</p>
-        
-         <p> <FaPhone /> {user.telefone}</p>
-        
+        <hr/>
+        <p> <FaPhone /> {user.telefone}</p>
+        <hr/>
+        <button className='edit-button'><FaPencilAlt/> Edit Info </button>
+
         </div>
-      <p></p>
       </div>
       <Footer />
     </div>
