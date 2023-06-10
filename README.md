@@ -85,32 +85,32 @@ A abordagem de componentização adotada no projeto permite a criação de compo
 ## Plano de Teste
 O plano de teste visa garantir a funcionalidade correta e a experiência do usuário durante o ciclo principal de uso do aplicativo, bem como a navegação pelas páginas da barra de navegação.
 
-1. Login: O teste consiste em verificar se o usuário pode fazer login com sucesso. Será verificado se as informações de login (email e senha) são aceitas corretamente e se o redirecionamento para a página inicial ocorre conforme esperado.
+1. **Login**: O teste consiste em verificar se o usuário pode fazer login com sucesso. Será verificado se as informações de login (email e senha) são aceitas corretamente e se o redirecionamento para a página inicial ocorre conforme esperado.
 
-2. Acesso à página "Sell": Verificar se o usuário logado pode acessar a página "Sell" sem problemas. Será verificado se o redirecionamento ocorre corretamente e se a página é exibida com todas as informações necessárias para criar um anúncio de venda.
+2. **Acesso à página "Sell"**: Verificar se o usuário logado pode acessar a página "Sell" sem problemas. Será verificado se o redirecionamento ocorre corretamente e se a página é exibida com todas as informações necessárias para criar um anúncio de venda.
 
-3. Acesso a uma casa: O teste envolve acessar os detalhes de uma casa disponível na página "Sell". Será verificado se o usuário pode visualizar as informações completas da casa, incluindo descrição, número de quartos, banheiros, garagem e valor estimado.
+3. **Acesso a uma casa**: O teste envolve acessar os detalhes de uma casa disponível na página "Sell". Será verificado se o usuário pode visualizar as informações completas da casa, incluindo descrição, número de quartos, banheiros, garagem e valor estimado.
 
-4. Fazer uma oferta: Verificar se o usuário pode fazer uma oferta em uma casa. Será verificado se o usuário pode inserir um valor de oferta e enviar a oferta com sucesso. Além disso, será verificado se a confirmação da oferta é exibida corretamente.
+4. **Fazer uma oferta**: Verificar se o usuário pode fazer uma oferta em uma casa. Será verificado se o usuário pode inserir um valor de oferta e enviar a oferta com sucesso. Além disso, será verificado se a confirmação da oferta é exibida corretamente.
 
-5. Navegação pela barra de navegação: Testar a navegação pelas páginas da barra de navegação, como "Home", "About Us" e "Agents". Verificar se o usuário pode acessar essas páginas sem precisar estar logado. Será verificado se o redirecionamento ocorre corretamente e se o conteúdo das páginas é exibido corretamente.
+5. **Navegação pela barra de navegação**: Testar a navegação pelas páginas da barra de navegação, como "Home", "About Us" e "Agents". Verificar se o usuário pode acessar essas páginas sem precisar estar logado. Será verificado se o redirecionamento ocorre corretamente e se o conteúdo das páginas é exibido corretamente.
 
 Esses testes garantirão que o ciclo principal de uso do aplicativo, desde o login até a realização de uma oferta em uma casa, seja funcional e forneça uma boa experiência do usuário. Além disso, será verificado se a navegação pelas páginas da barra de navegação está correta e se o acesso a informações adicionais, como "About Us" e "Agents", está disponível mesmo sem estar logado.
 
 ## Resultados de Teste
 Após a execução dos testes, os resultados obtidos foram os seguintes:
 
-1. Login: O teste de login foi bem-sucedido. O usuário conseguiu fazer login com sucesso utilizando as informações corretas de email e senha. O redirecionamento para a página inicial ocorreu conforme esperado.
+1. **Login**: O teste de login foi bem-sucedido. O usuário conseguiu fazer login com sucesso utilizando as informações corretas de email e senha. O redirecionamento para a página inicial ocorreu conforme esperado.
 
-2. Acesso à página "Sell": O acesso à página "Sell" foi realizado sem problemas. O usuário logado conseguiu acessar a página e visualizar todas as informações necessárias para criar um anúncio de venda.
+2. **Acesso à página "Sell"**: O acesso à página "Sell" foi realizado sem problemas. O usuário logado conseguiu acessar a página e visualizar todas as informações necessárias para criar um anúncio de venda.
 
-3. Acesso a uma casa: O teste de acesso aos detalhes de uma casa disponível na página "Sell" foi concluído com sucesso. O usuário conseguiu visualizar todas as informações completas da casa, incluindo descrição, número de quartos, banheiros, garagem e valor estimado.
+3. **Acesso a uma casa**: O teste de acesso aos detalhes de uma casa disponível na página "Sell" foi concluído com sucesso. O usuário conseguiu visualizar todas as informações completas da casa, incluindo descrição, número de quartos, banheiros, garagem e valor estimado.
 
-4. Fazer uma oferta: O teste de fazer uma oferta em uma casa foi concluído com sucesso. O usuário conseguiu inserir um valor de oferta e enviar a oferta com êxito. A confirmação da oferta foi exibida corretamente.
+4. **Fazer uma oferta**: O teste de fazer uma oferta em uma casa foi concluído com sucesso. O usuário conseguiu inserir um valor de oferta e enviar a oferta com êxito. A confirmação da oferta foi exibida corretamente.
 
-5. Navegação pela barra de navegação: O teste de navegação pelas páginas da barra de navegação também foi bem-sucedido. O usuário pôde acessar as páginas "Home", "About Us" e "Agents" sem precisar estar logado. O redirecionamento ocorreu conforme esperado e o conteúdo das páginas foi exibido corretamente.
+5. **Navegação pela barra de navegação**: O teste de navegação pelas páginas da barra de navegação também foi bem-sucedido. O usuário pôde acessar as páginas "Home", "About Us" e "Agents" sem precisar estar logado. O redirecionamento ocorreu conforme esperado e o conteúdo das páginas foi exibido corretamente.
 
-6. Com base nos resultados dos testes, pode-se afirmar que o aplicativo permite que o usuário acesse as páginas solicitadas no plano de teste e realize com completude o ciclo do usuário, desde o login até a realização de uma oferta em uma casa. Além disso, a navegação pelas páginas da barra de navegação está funcionando corretamente, permitindo acesso às informações adicionais mesmo sem estar logado.
+Com base nos resultados dos testes, pode-se afirmar que o aplicativo permite que o usuário acesse as páginas solicitadas no plano de teste e realize com completude o ciclo do usuário, desde o login até a realização de uma oferta em uma casa. Além disso, a navegação pelas páginas da barra de navegação está funcionando corretamente, permitindo acesso às informações adicionais mesmo sem estar logado.
 
 ## Procedimento de Build
 
