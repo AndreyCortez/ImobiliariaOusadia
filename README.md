@@ -24,11 +24,48 @@ A Ousadia Imobiliária é uma empresa fictícia especializada em serviços de co
 + Perfil do administrador: Nossos clientes também têm acesso a um perfil de administrador, que garante a eficiência e transparência em todas as nossas operações. Isso inclui a gestão de documentos e a comunicação com os clientes para garantir que todas as operações sejam executadas de maneira profissional e confiável.
 
 + Informações sobre a empresa: No site da Ousadia Imobiliária, você pode encontrar informações sobre nossa empresa, bem como nossos valores e missão. Queremos que nossos clientes saibam que podem confiar em nós para fornecer serviços de corretagem de imóveis de alta qualidade e éticos.
-    
+
+## Banco de Dados
+O projeto utiliza um banco de dados para armazenar as informações relacionadas aos usuários, corretores, casas vendidas e detalhes das casas disponíveis. A estrutura do banco de dados é a seguinte:
+
+1. Tabela "usuario":
+
++ cpf (chave primária): CPF do usuário
++ nome: Nome do usuário
++ email: Email do usuário
++ senha: Senha do usuário
+
+2. Tabela "corretor":
+
++ cpf (chave primária): CPF do corretor
++ nome: Nome do corretor
++ email: Email do corretor
++ senha: Senha do corretor
+
+3. Tabela "casaVendida":
+
++ cpf_corretor (chave estrangeira): CPF do corretor responsável pela venda da casa
++ id_casa (chave estrangeira): ID da casa vendida
+
+4. Tabela "casa":
+
++ id (chave primária): ID da casa
++ quartos: Número de quartos na casa
++ banheiros: Número de banheiros na casa
++ garagem: Número de vagas de garagem da casa
++ valor_estimado: Valor estimado da casa
++ status: Status da casa (disponível, vendida, alugada, etc.)
++ CPF_corretor (chave estrangeira): CPF do corretor responsável pela casa
++ descrição: Descrição detalhada da casa
++ endereço: Endereço da casa
+
+
+
 ## Diagrama    
 Aplicação se trata de uma aplicação web para uma imobiliária e conta com o seguinte diagrama de navagação:
 ![diagrama de navegação](Navigation.png)
 Para visualizar o mockup das páginas basta acessar: https://www.figma.com/file/HTA8SPnrBmFxqan7vjvkvF/mockup?type=design&node-id=0%3A1&t=7yYNAlJD72id5u4C-1 
+
 
 ## Comentários sobre o código
 
