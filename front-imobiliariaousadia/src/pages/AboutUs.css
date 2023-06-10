@@ -1,0 +1,46 @@
+.bg-title {
+    background-image: url('../assets/test/houseFront4.jpg');
+    background-color: rgba(15, 82, 186, 0.5); 
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  
+  .title {
+    color: white;
+    font-size: 3rem;
+  }
+
+  .container {
+
+    display: flex;
+    align-items: center;
+    align-self: center;
+    padding-inline: 300px;
+    margin-top: 50px;
+    width: 1200px;
+    font-size: larger;
+    padding-bottom: 50px;
+}
+
+  .text-area
+  {
+    display: block;
+    align-items: center;
+    align-self: center;
+    padding-inline: 75px;
+  }
+
+  .image-box {
+    float: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 500px;
+    height: auto;
+  }

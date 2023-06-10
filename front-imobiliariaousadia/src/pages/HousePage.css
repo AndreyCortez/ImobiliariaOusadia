@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+}
+
+.information-container {
+  flex: 1;
+}
+
+.description-container {
+  flex: 1;
+}
+
+.description p {
+  margin-bottom: 20px;
+}
+
+.Button{
+ position: relative;
+ top: 200px;       
+left: 80px;
+}
