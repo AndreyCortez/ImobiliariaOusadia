@@ -20,14 +20,7 @@ const SellPage = () => {
       <div className="container">
         <div className="house-list">
           {houseDetails.map((house, index) => (
-            <ImgContainer
-              key={index}
-              image={house.image}
-              city={house.city}
-              address={house.address}
-              bathrooms={house.bathrooms}
-              bedrooms={house.bedrooms}
-              garage={house.garage}
+            <ImgContainer houseDetails = {house}
             />
           ))}
         </div>

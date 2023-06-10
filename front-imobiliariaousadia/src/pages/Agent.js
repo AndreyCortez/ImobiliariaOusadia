@@ -7,6 +7,8 @@ import award1 from '../assets/Awards/image 6.jpg'
 import award2 from '../assets/Awards/image 7.jpg'
 import award3 from '../assets/Awards/image 9.jpg'
 
+import './Agent.css'
+
 import { FaStar, FaPhone, FaEnvelope  } from 'react-icons/fa';
 import {agentDetails, houseDetails} from '../data.js'
 
@@ -22,12 +24,14 @@ const AgentPage = ({AgentId}) => {
       <img className='agent-image' src={Agent.image}/>
       <div className='agent-data'>
 
-        <h2>{Agent.name}</h2>
+        <h1>{Agent.name}</h1>
+        <h4>Principal, Belle Property, Queanbay</h4>
         <FaStar/>
         <FaStar/>
         <FaStar/>
         <FaStar/>
         <FaStar/>
+        <p><b>Average Rating: 4.9</b></p>
         <div >
           <FaEnvelope /> {Agent.email}
         </div>
@@ -41,9 +45,11 @@ const AgentPage = ({AgentId}) => {
       </div>
       <div className = 'awards'>
         <h2>Awards</h2>
+        <div className='awards-img'>
         <img src = {award1}/>
         <img src = {award2}/>
         <img src = {award3}/>
+        </div>
       </div>
       </div>
       <div className='container'>
@@ -53,15 +59,8 @@ const AgentPage = ({AgentId}) => {
     
         <div className="container">
         <div className="house-list">
-          {houseDetails.map((house, index) => (
-            <ImgContainer
-              key={index}
-              image={house.image}
-              city={house.city}
-              address={house.address}
-              bathrooms={house.bathrooms}
-              bedrooms={house.bedrooms}
-              garage={house.garage}
+        {houseDetails.map((house, index) => (
+            <ImgContainer houseDetails = {house}
             />
           ))}
       </div>

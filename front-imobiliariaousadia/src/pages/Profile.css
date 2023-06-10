@@ -1,0 +1,35 @@
+.apraisals-container {
+    display: block;
+    width: 1200px;
+}
+
+.page-container
+{
+    display: flex;
+}
+
+.profile-container
+{
+    font-size: 25px;
+    display: block;
+    padding-top: 50px;
+    padding-inline: 100px;
+}
+
+.profile-container p {
+    font-size: 22px;
+}
+
+.profile-image 
+{
+
+  width: 300px;
+  height: 300px;
+    border-radius: 50%;
+  }
+
+.vline{
+    border-left:1px solid #000;
+    height:1200px;
+    margin: 20px;
+}
