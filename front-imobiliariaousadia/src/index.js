@@ -6,12 +6,14 @@ import HousePage from './pages/HousePage.js';
 import SellPage from './pages/SellPage.js';
 import reportWebVitals from './reportWebVitals';
 import Appraisal from './pages/Appraisal';
+import SignIn from './pages/SignIn';
+import Register from './pages/Register';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Appraisal/>
+    <Register/>
   </React.StrictMode>
 );
 
