@@ -7,7 +7,7 @@ import ImgContainer from '../components/ImgContainer/ImgContainer.js';
 import "./HomePage.js";
 import HeaderPage from '../components/HeaderPage/HeaderPage.js';
 
-//import {houseDetails} from '../data.js';
+import {houseDetails} from '../data.js';
 
 const SellPage = () => {
 
