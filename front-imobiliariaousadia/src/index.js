@@ -5,12 +5,13 @@ import HomePage from './pages/HomePage.js'
 import HousePage from './pages/HousePage.js';
 import SellPage from './pages/SellPage.js';
 import reportWebVitals from './reportWebVitals';
+import Appraisal from './pages/Appraisal';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HousePage/>
+    <Appraisal/>
   </React.StrictMode>
 );
 
