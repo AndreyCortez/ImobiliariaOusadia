@@ -1,19 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import HomePage from './pages/HomePage.js'
-import HousePage from './pages/HousePage.js';
-import SellPage from './pages/SellPage.js';
 import reportWebVitals from './reportWebVitals';
-import Appraisal from './pages/Appraisal';
-import SignIn from './pages/SignIn';
-import Register from './pages/Register';
-
+import App from './services/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Register/>
+    <App />
   </React.StrictMode>
 );
 

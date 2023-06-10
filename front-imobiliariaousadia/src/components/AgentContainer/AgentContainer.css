@@ -1,0 +1,61 @@
+.agent-container {
+    margin: 20px auto;
+    max-width: 300px;
+    width: 350px;
+    font-family: "DM Sans", sans-serif;
+    display: inline-block;
+    margin-left: 80px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #F8F8F8;
+  }
+
+
+  
+  .agent-container .agent-details {
+    width: calc(33.33% - 10px);
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .agent-address{
+    height: 0px;
+    width: 300px;
+    font-size: smaller;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left: 5px;
+    align-items: center;
+  }
+  
+  
+  .agent-image {
+
+    width: 300px;
+    height: 400px;
+  }
+  
+  .agent-details {
+    display:block;
+    align-items: center;
+  }
+  
+  
+
+
+  .icon {
+    align-items: center;
+    font-size: medium;
+    height: 50px;
+    margin-inline: 20px;
+    width: 250px;
+  }
+  
+  .icon svg {
+    margin-right: 10px;
+  }
+  
+  .info {
+    align-items: center;
+  }
+  

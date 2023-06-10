@@ -1,6 +1,6 @@
 .house-container {
   margin: 20px auto;
-  max-width: 1200px;
+  max-width: 300px;
   width: 350px;
   font-family: "DM Sans", sans-serif;
   display: inline-block;
@@ -18,7 +18,7 @@
 
 .house-address{
   height: 33.27px;
-  width: 190px;
+  width: 300px;
   font-size: smaller;
   margin-top:5px;
   margin-bottom:5px;
@@ -28,8 +28,8 @@
 
 
 .house-image {
-  height: 250px;
-  width: 350px;
+  height: auto;
+  width: 300px;
 }
 
 .house-details {
