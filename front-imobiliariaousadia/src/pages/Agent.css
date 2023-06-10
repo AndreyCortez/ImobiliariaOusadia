@@ -1,0 +1,29 @@
+.agent-container {
+    width: 1000px;
+    display: flex;
+    margin: 60px;
+    /* justify-content: center; */
+  }
+  
+  .agent-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .awards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+
+h2 {
+    text-align: center;
+  }
+
+.agent-image{
+    display: flex;
+    flex-direction: row;
+}
