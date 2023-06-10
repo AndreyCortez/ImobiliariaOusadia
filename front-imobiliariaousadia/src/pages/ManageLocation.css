@@ -1,0 +1,13 @@
+.manage-location-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .button {
+    margin-bottom: 40px;
+    margin-right:100px;
+  }
+  

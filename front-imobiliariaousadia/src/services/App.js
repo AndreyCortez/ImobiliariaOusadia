@@ -6,6 +6,7 @@ import SellPage from '../pages/SellPage';
 import Profile from '../pages/Profile';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AgentPage from '../pages/Agent';
+import ManageLocation from '../pages/ManageLocation';
 
 const App = () =>{
   return(
@@ -16,6 +17,7 @@ const App = () =>{
         <Route path="/housepage" element={<HousePage />} />
         <Route path="/sellpage" element={<SellPage />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/managelocation" element={<ManageLocation/>} />
         <Route path="/profile" element={<Profile UserId = {1}/>} />
         <Route path="/agent" element={<AgentPage AgentId = {0} />}/>
       </Routes>

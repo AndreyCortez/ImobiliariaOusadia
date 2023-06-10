@@ -40,14 +40,14 @@ export const agentDetails = [
   ];
   
 export const houseDetails = [
-    { image: houseimage8, city: 'New York', address: '123 Broadway', bathrooms: 2, bedrooms: 3, garage: 1 },
-    { image: houseimage2, city: 'Los Angeles', address: '456 Hollywood Blvd', bathrooms: 3, bedrooms: 4, garage: 2 },
-    { image: houseimage3, city: 'Chicago', address: '789 Magnolia Ave', bathrooms: 2, bedrooms: 2, garage: 0 },
-    { image: houseimage4, city: 'San Francisco', address: '321 Golden Gate St', bathrooms: 4, bedrooms: 5, garage: 3 },
-    { image: houseimage5, city: 'Miami', address: '987 Ocean Drive', bathrooms: 3, bedrooms: 4, garage: 2 },
-    { image: houseimage6, city: 'Seattle', address: '555 Rainier Ave', bathrooms: 2, bedrooms: 3, garage: 1 },
-    { image: houseimage7, city: 'Boston', address: '222 Beacon St', bathrooms: 3, bedrooms: 4, garage: 2 },
-    { image: houseimage8, city: 'Denver', address: '777 Rocky Road', bathrooms: 2, bedrooms: 2, garage: 1 },
-    { image: houseimage9, city: 'Austin', address: '888 Lakeview Ave', bathrooms: 3, bedrooms: 3, garage: 2 }
+    { image: houseimage8, id: '01234567', city: 'New York', address: '123 Broadway', bathrooms: 2, bedrooms: 3, garage: 1 },
+    { image: houseimage2, id: '01234568', city: 'Los Angeles', address: '456 Hollywood Blvd', bathrooms: 3, bedrooms: 4, garage: 2 },
+    { image: houseimage3, id: '01234569', city: 'Chicago', address: '789 Magnolia Ave', bathrooms: 2, bedrooms: 2, garage: 0 },
+    { image: houseimage4, id: '01234578', city: 'San Francisco', address: '321 Golden Gate St', bathrooms: 4, bedrooms: 5, garage: 3 },
+    { image: houseimage5, id: '01234579', city: 'Miami', address: '987 Ocean Drive', bathrooms: 3, bedrooms: 4, garage: 2 },
+    { image: houseimage6, id: '01234589', city: 'Seattle', address: '555 Rainier Ave', bathrooms: 2, bedrooms: 3, garage: 1 },
+    { image: houseimage7, id: '01234678', city: 'Boston', address: '222 Beacon St', bathrooms: 3, bedrooms: 4, garage: 2 },
+    { image: houseimage8, id: '01234679', city: 'Denver', address: '777 Rocky Road', bathrooms: 2, bedrooms: 2, garage: 1 },
+    { image: houseimage9, id:'01235678', city: 'Austin', address: '888 Lakeview Ave', bathrooms: 3, bedrooms: 3, garage: 2 }
   ];
   

@@ -1,0 +1,34 @@
+/* SearchBar.css */
+.SearchBar-form {
+  display: flex;
+  align-items: center;
+}
+
+.SearchBar-input {
+  width: 300px;
+  height: 10px;
+  border: 2px solid #1a237e;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.SearchBar-button {
+  background-color: #1a237e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.SearchBar-button svg {
+  margin-right: 4px;
+}
+
+.SearchBar-button:focus {
+  outline: none;
+}
+
