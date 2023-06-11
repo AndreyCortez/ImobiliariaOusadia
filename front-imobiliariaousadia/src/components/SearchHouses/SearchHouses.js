@@ -17,7 +17,6 @@ const SearchHouses = () => {
       </div>
       <div className="filters-button">
         <FiFilter />
-        FILTERS
       </div>
 
     </div>

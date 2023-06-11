@@ -88,16 +88,6 @@
 .filters-button svg {
   margin-right: 10px;
 }
-With this change, the filter icon should be centered vertically within the "Filters" button. The display: flex, align-items: center, and justify-content: center properties are added to the .filters-button class to achieve the desired centering effect. Additionally, the margin-right: 10px property is added to create a small space between the filter icon and the text.
-
-If you have any further questions, feel free to ask!
-
-
-
-
-
-
-
 
 .filters-button::before {
   content: "FILTERS";
