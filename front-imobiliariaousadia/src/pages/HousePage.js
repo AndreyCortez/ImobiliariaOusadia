@@ -15,7 +15,7 @@ const HousePage = () => {
     <div>
       <Navbar />
 
-        <ImageShow />
+        <ImageShow houseId={id} />
 
         <div className="content-container">
           <div className="information-container">
@@ -27,7 +27,7 @@ const HousePage = () => {
               <Link to={`/appraisal`}>
                 <Button name="Make your Appraisal" />
               </Link>
-              
+
           </div>
         </div>
       </div>
