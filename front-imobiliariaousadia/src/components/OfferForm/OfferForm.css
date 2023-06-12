@@ -1,4 +1,4 @@
-.AppraisalForm {
+.OfferForm {
   display: flex;
   justify-content: space-between;
 }
@@ -19,8 +19,8 @@
   margin: 20px 0;
 }
 
-.AppraisalForm input,
-.AppraisalForm select {
+.OfferForm input,
+.OfferForm select {
   width: 400px;
   outline: 0;
   border-width: 0 0 1px;
@@ -38,7 +38,7 @@ select:focus {
   margin-top: 10px;
 }
 
-.AppraisalForm input[type="submit"] {
+.OfferForm input[type="submit"] {
   margin-left: 150px;
   width: 100px;
   height: 35px;
@@ -49,7 +49,7 @@ select:focus {
   border-radius: 20px;
 }
 
-.AppraisalForm input[type="submit"]:hover {
+.OfferForm input[type="submit"]:hover {
   background-color: #867d7d; 
   color: #fff; 
 }

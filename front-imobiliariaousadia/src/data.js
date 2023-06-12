@@ -127,4 +127,14 @@ export const houseDetails = [
     {cpf: '66666666666',email: 'usuario8@example.com',phone: '6666666666',password: 'senha8',userType: 'client',name: "Alexandre Mcqueen"},
   ];
   
-  
+  export const houseStatus = [
+    {id: '01234567',status:'sold',owner: '12345678900',price: 250000},
+    {id: '01234568',status:'available',owner: '', price: 250000},
+    {id: '01234569',status:'available',owner: '', price: 250000},
+    {id: '01234578',status:'available',owner: '', price: 250000},
+    {id: '01234579',status:'available',owner: '', price: 250000},
+    {id: '01234589',status:'sold',owner: '55555555555', price: 250000},
+    {id: '01234678',status:'available',owner: '', price: 250000},
+    {id: '01234679',status:'available',owner: '', price: 250000},
+    {id: '01235678',status:'sold',owner: '66666666666', price: 250000},
+    ];

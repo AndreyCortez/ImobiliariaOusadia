@@ -24,8 +24,8 @@ const HousePage = () => {
           <div className="description-container">
             <Description id={id} />
             <div className="Button">
-              <Link to={`/appraisal`}>
-                <Button name="Make your Appraisal" />
+              <Link to={`/offer`}>
+                <Button name="Make your Offer" />
               </Link>
 
           </div>

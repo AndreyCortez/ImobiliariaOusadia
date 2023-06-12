@@ -49,6 +49,19 @@ const RegistrationForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+
+    if (
+      fullName === '' ||
+      email === '' ||
+      emailVerification === '' ||
+      password === '' ||
+      passwordVerification === '' ||
+      cpf === '' ||
+      phone === ''
+    ) {
+      setPopupContent('Please fill in all fields');
+      setShowPopup(true);
+    } else {
     // Verificar se o CPF já está presente na lista de usuários
     const userExists = users.find((user) => user.cpf === cpf);
 
@@ -88,6 +101,7 @@ const RegistrationForm = () => {
       setShowPopup(true);
       console.log('New User:', newUser);
     }
+  }
   };
   
 

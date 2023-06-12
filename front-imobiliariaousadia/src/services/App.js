@@ -12,7 +12,7 @@ import SingIn from '../pages/SignIn';
 import Agents from '../pages/Agents';
 import SignIn from '../pages/SignIn';
 import Register from '../pages/Register';
-import Appraisal from '../pages/Appraisal';
+import Offer from '../pages/Offer';
 
 const App = () =>{
   return(
@@ -31,7 +31,7 @@ const App = () =>{
         <Route path="/adminpage" element={<AdminPage AdminId={0}/>}/>
         <Route path="/signin" element={<SingIn/>}/>
         <Route path='/register' element={<Register/>}/>
-        <Route path='/appraisal' element={<Appraisal/>}/>
+        <Route path='/offer' element={<Offer/>}/>
         <Route path="/sell" element={<SellPage/>} />
         <Route path="/house/:id" element={<HousePage/>} />
       </Routes>
