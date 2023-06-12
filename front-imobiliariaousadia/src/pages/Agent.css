@@ -1,11 +1,9 @@
 .agent-container {
     width: auto;
     display: flex;
-    /* align-items: center; */
     justify-self: center;
-    margin-inline: 350px;
-    margin-top: 100px;
-    /* justify-content: center; */
+    margin-inline: 400px;
+    margin-block: 100px;
   }
   
   .agent-data {
@@ -19,10 +17,11 @@
   
   .awards {
     text-align: center;
+    align-items: center;
     display: block;
     flex-direction: row;
     align-items: center;
-    margin-left: 40px;
+    width: 250px;
   }
 
   .awards-img{
@@ -42,4 +41,15 @@
     height: auto;
     display: flex;
     flex-direction: row;
+}
+
+.bottom-container{
+    text-align: center;
+    margin: 30px;
+}
+
+.vline{
+    border-left:1px solid #000;
+    height:350px;
+    margin: 20px;
 }

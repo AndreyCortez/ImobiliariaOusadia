@@ -7,6 +7,11 @@ import Profile from '../pages/Profile';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AgentPage from '../pages/Agent';
 import ManageLocation from '../pages/ManageLocation';
+import AdminPage from '../pages/AdminPage';
+import SingIn from '../pages/SignIn';
+import Register from '../pages/Register'
+import Appraisal from '../pages/Appraisal'
+import Agents from '../pages/Agents';
 import SignIn from '../pages/SignIn';
 import Register from '../pages/Register';
 import Appraisal from '../pages/Appraisal';
@@ -25,6 +30,11 @@ const App = () =>{
         <Route path="signin" element={<SignIn/>} />
         <Route path="/profile" element={<Profile UserId = {1}/>} />
         <Route path="/agent" element={<AgentPage AgentId = {0} />}/>
+        <Route path="/agents" element={<Agents/>}/>
+        <Route path="/adminpage" element={<AdminPage AdminId={0}/>}/>
+        <Route path="/signin" element={<SingIn/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/appraisal' element={<Appraisal/>}/>
         <Route path="/register" element={<Register/>} />
         <Route path="/sell" element={<SellPage/>} />
         <Route path="/house/:id" element={<HousePage/>} />

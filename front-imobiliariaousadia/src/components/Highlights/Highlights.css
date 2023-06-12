@@ -1,0 +1,29 @@
+.highlights-slider {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 3px solid gray;
+    border-top: none;
+    border-right: none;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  
+  .slick-prev:before {
+    left: 10px;
+  }
+  
+  .slick-next:before {
+    right: 10px;
+    transform: translateY(-50%) rotate(-135deg); /* Updated rotation angle */
+  }
+  

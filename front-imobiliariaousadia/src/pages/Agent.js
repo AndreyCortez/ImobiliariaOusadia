@@ -43,6 +43,7 @@ const AgentPage = ({AgentId}) => {
         Vila Pureza, Vila Rancho Velho, Vila Santa Madre Cabrini, Vila São José, Vila Sonia, Vila Vista Alegre
 
       </div>
+      <hr className='vline'/>
       <div className = 'awards'>
         <h2>Awards</h2>
         <div className='awards-img'>
@@ -51,21 +52,22 @@ const AgentPage = ({AgentId}) => {
         <img src = {award3}/>
         </div>
       </div>
-      </div>
-      <div className='container'>
-        <h2>My listing</h2>
-        </div>
 
-    
-        <div className="container">
+      <hr className='vline'/>
+      </div>
+
+      <div className='bottom-container'>
+      <h2>My listing</h2>
+        
         <div className="house-list">
         {houseDetails.map((house, index) => (
             <ImgContainer houseDetails = {house}
             />
           ))}
       </div>
-
       </div>
+
+
       <Footer />
 
     </div>

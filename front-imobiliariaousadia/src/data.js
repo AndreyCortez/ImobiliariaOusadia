@@ -51,6 +51,11 @@ export const houseDetails = [
     { image: houseimage9, id:'01235678', city: 'Austin', address: '888 Lakeview Ave', bathrooms: 3, bedrooms: 3, garage: 2 }
   ];
 
+  export const HighlightsData = [
+    { image: houseimage8, id: '01234567', city: 'New York', address: '123 Broadway', bathrooms: 2, bedrooms: 3, garage: 1 },
+    { image: houseimage2, id: '01234568', city: 'Los Angeles', address: '456 Hollywood Blvd', bathrooms: 3, bedrooms: 4, garage: 2 },
+    { image: houseimage3, id: '01234569', city: 'Chicago', address: '789 Magnolia Ave', bathrooms: 2, bedrooms: 2, garage: 0 },
+  ]; 
  export const houseDescription = [
   {
     id: '01234567',
