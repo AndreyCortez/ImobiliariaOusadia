@@ -116,5 +116,15 @@ export const houseDetails = [
   {id: '01235678',photos: [house9_1,house9_2, house9_3, house9_4],},
   ];
   
-
+  export const users = [
+    {cpf: '12345678900',email: 'usuario1@example.com',phone: '1234567890',password: 'senha1',userType: 'client',},
+    {cpf: '98765432100',email: 'usuario2@example.com',phone: '0987654321',password: 'senha2',userType: 'adm',},
+    {cpf: '11111111111',email: 'usuario3@example.com',phone: '1111111111',password: 'senha3',userType: 'client',},
+    {cpf: '22222222222',email: 'usuario4@example.com',phone: '2222222222',password: 'senha4',userType: 'client',},
+    {cpf: '33333333333',email: 'usuario5@example.com',phone: '3333333333',password: 'senha5',userType: 'client',},
+    {cpf: '44444444444',email: 'usuario6@example.com',phone: '4444444444',password: 'senha6',userType: 'client',},
+    {cpf: '55555555555',email: 'usuario7@example.com',phone: '5555555555',password: 'senha7',userType: 'adm',},
+    {cpf: '66666666666',email: 'usuario8@example.com',phone: '6666666666',password: 'senha8',userType: 'client',},
+  ];
+  
   
