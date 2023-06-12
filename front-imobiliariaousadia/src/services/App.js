@@ -9,8 +9,6 @@ import AgentPage from '../pages/Agent';
 import ManageLocation from '../pages/ManageLocation';
 import AdminPage from '../pages/AdminPage';
 import SingIn from '../pages/SignIn';
-import Register from '../pages/Register'
-import Appraisal from '../pages/Appraisal'
 import Agents from '../pages/Agents';
 import SignIn from '../pages/SignIn';
 import Register from '../pages/Register';
@@ -35,10 +33,8 @@ const App = () =>{
         <Route path="/signin" element={<SingIn/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/appraisal' element={<Appraisal/>}/>
-        <Route path="/register" element={<Register/>} />
         <Route path="/sell" element={<SellPage/>} />
         <Route path="/house/:id" element={<HousePage/>} />
-        <Route path="/appraisal" element={<Appraisal/>} />
       </Routes>
     </BrowserRouter>
     </>
