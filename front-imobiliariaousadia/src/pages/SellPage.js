@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer.js';
 import Navbar from '../components/Navbar/Navbar.js';
 import ImgContainer from '../components/ImgContainer/ImgContainer.js';
 
-import "./HomePage.js";
+import "./SellPage.css";
 import HeaderPage from '../components/HeaderPage/HeaderPage.js';
 
 import {houseDetails} from '../data.js';

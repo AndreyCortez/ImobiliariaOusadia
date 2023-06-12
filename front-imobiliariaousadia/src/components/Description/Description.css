@@ -2,7 +2,7 @@
   margin-top: 60px;
   flex: 1;
   position: absolute;
-  padding-left: 40px; /* Adjust the value to increase or decrease the space */
+  padding-left: 40px; 
 }
 
 .information::before {
@@ -13,7 +13,7 @@
   left: 0;
   width: 1px;
   background-color: #000;
-  height: 330px;
+  height: 170px;
 }
 
 .information .property {
@@ -23,6 +23,7 @@
 .information .property h3 {
   margin-top: 0;
   margin-right: 20px;
+  font-size: 20px; 
 }
 
 .information .property div {
@@ -34,6 +35,7 @@
   margin: 0;
   margin-right: 20px;
   line-height: 1.5;
+  font-size: 16px; 
 }
 
 .information .values {

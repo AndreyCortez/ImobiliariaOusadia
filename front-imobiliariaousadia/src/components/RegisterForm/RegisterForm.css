@@ -6,11 +6,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 60px;
   margin: 30px;
   position: relative;
   top: 10px;
-  left: 300px;
+  left: 250px;
   background-color:#fff;
 }
 

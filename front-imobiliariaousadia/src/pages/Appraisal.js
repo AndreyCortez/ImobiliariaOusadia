@@ -12,21 +12,22 @@ const Appraisal = () => {
     textAlign: 'center',
   };
 
+  const paragraphStyle = {
+    fontSize: '18px', // Ajuste o tamanho da fonte conforme necessário
+  };
+
   return (
-    <> 
-    <Navbar />
-    <HeaderPage title="Request an Appraisal" />
-    <div style={containerStyle}>
-      <p>
-        Please fill in the information below so that we can contact our <br />
-        responsible agent to make the purchase of the property and <br />
-        clarify any doubts you may have.<br />
-      </p>
-    </div>
-        <AppraisalForm />
+    <>
+      <Navbar />
+      <HeaderPage title="Request an Appraisal" />
+      <div style={containerStyle}>
+        <p style={paragraphStyle}>
+          Please fill in the information below so that we can contact our responsible agent to make the purchase of the property and clarify any doubts you may have.
+        </p>
+      </div>
+      <AppraisalForm />
       <Footer />
     </>
-   
   );
 };
 

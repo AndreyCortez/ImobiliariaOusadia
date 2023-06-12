@@ -1,11 +1,14 @@
 import React from 'react';
 import './ImgContainer.css';
+import { Link } from 'react-router-dom';
+
 
 import { FaBed, FaBath } from 'react-icons/fa';
 import {AiFillCar} from 'react-icons/ai';
 
 const ImgContainer = ({ houseDetails }) => {
   return (
+    <Link to={`/house/${houseDetails.id}`}>
     <div className="house-container">
     <img className="house-image" src={houseDetails.image} alt="House" />
       <div className='house-address'>
@@ -34,6 +37,7 @@ const ImgContainer = ({ houseDetails }) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

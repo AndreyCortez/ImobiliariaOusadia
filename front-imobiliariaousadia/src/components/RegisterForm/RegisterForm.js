@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './RegisterForm.css';
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
+
 
 const RegistrationForm = () => {
   const [fullName, setFullName] = useState('');
@@ -97,7 +99,10 @@ const RegistrationForm = () => {
           <input type="submit" value="Register" />
         </div>
         <div className='SignIn'>
+          <Link to="/signin">
           <Button name={'Sign In'}/>
+          </Link>
+          
         </div>
       </form>
     </div>

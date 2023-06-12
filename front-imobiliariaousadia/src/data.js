@@ -1,4 +1,4 @@
-// Eu te odeio React, eu te desprezo, vc ainda me paga
+
 import agentimage1 from './assets/Agents/images.jpg'
 import agentimage2 from './assets/Agents/images1.jpg'
 import agentimage3 from './assets/Agents/images (2).jpg'
@@ -50,4 +50,80 @@ export const houseDetails = [
     { image: houseimage8, id: '01234679', city: 'Denver', address: '777 Rocky Road', bathrooms: 2, bedrooms: 2, garage: 1 },
     { image: houseimage9, id:'01235678', city: 'Austin', address: '888 Lakeview Ave', bathrooms: 3, bedrooms: 3, garage: 2 }
   ];
+
+ export const houseDescription = [
+  {
+    id: '01234567',
+    address: '123 Broadway',
+    description: 'Spacious house with 3 bedrooms and 2 bathrooms. This beautiful property offers a large backyard and a land size of 1,500 square meters.',
+    typeOfProperty: 'House',
+    price: 250000,
+    landSize: 1500,
+  },
+  {
+    id: '01234568',
+    address: '456 Hollywood Blvd',
+    description: 'Beautiful house with 4 bedrooms, 3 bathrooms, and a garage. The property features a generous land size of 2,000 square meters, perfect for outdoor activities and gardening.',
+    typeOfProperty: 'House',
+    price: 450000,
+    landSize: 2000,
+  },
+  {
+    id: '01234569',
+    address: '789 Magnolia Ave',
+    description: 'Cozy house with 2 bedrooms, 2 bathrooms, and no garage. This charming property has a land size of 800 square meters, providing a cozy and manageable space.',
+    typeOfProperty: 'House',
+    price: 180000,
+    landSize: 800,
+  },
+  {
+    id: '01234578',
+    address: '321 Golden Gate St',
+    description: 'Luxurious house with 5 bedrooms, 4 bathrooms, and a 3-car garage. This grand property boasts a spacious interior and a substantial land size of 3,500 square meters.',
+    typeOfProperty: 'House',
+    price: 850000,
+    landSize: 3500,
+  },
+  {
+    id: '01234579',
+    address: '987 Ocean Drive',
+    description: 'Modern house with 4 bedrooms, 3 bathrooms, and a 2-car garage. The property features a land size of 1,200 square meters, providing ample space for outdoor entertaining and activities.',
+    typeOfProperty: 'House',
+    price: 550000,
+    landSize: 1200,
+  },
+  {
+    id: '01234589',
+    address: '555 Rainier Ave',
+    description: 'Charming house with 3 bedrooms, 2 bathrooms, and a garage. This delightful property offers a land size of 1,000 square meters, providing a cozy outdoor space.',
+    typeOfProperty: 'House',
+    price: 320000,
+    landSize: 1000,
+  },
+  {
+    id: '01234678',
+    address: '222 Beacon St',
+    description: 'Stunning house with 4 bedrooms, 3 bathrooms, and a 2-car garage. The property features a land size of 1,800 square meters, offering ample room for outdoor activities and landscaping.',
+    typeOfProperty: 'House',
+    price: 480000,
+    landSize: 1800,
+  },
+  {
+    id: '01234679',
+    address: '777 Rocky Road',
+    description: 'Cozy house with 2 bedrooms, 2 bathrooms, and a garage. This lovely property features a land size of 900 square meters, providing a quaint and manageable outdoor space.',
+    typeOfProperty: 'House',
+    price: 220000,
+    landSize: 900,
+  },
+  {
+    id: '01235678',
+    address: '888 Lakeview Ave',
+    description: 'Lovely house with 3 bedrooms, 3 bathrooms, and a 2-car garage. The property boasts a land size of 1,500 square meters, offering plenty of space for outdoor activities and relaxation.',
+    typeOfProperty: 'House',
+    price: 390000,
+    landSize: 1500,
+  },
+];
+
   

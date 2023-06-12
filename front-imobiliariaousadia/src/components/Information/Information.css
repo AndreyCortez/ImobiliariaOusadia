@@ -1,15 +1,39 @@
+.title {
+  margin-left: 40px;
+  font-size: 20px;
+}
+
+.address {
+  font-size: 20px;
+  color: #333;
+}
+
+.price {
+  font-size: 16px;
+  color: #666;
+}
+
 .description {
   flex: 1;
   margin-right: 20px;
   margin-left: 40px;
 }
 
-.p {
+.description-text {
   margin-top: 16px;
   margin-bottom: 16px;
+  font-size: 14px;
+  color: #333;
 }
 
-.title{
-  margin-left: 40px;
-  font-size: medium;
+.title h1 {
+  font-size: 32px;
+}
+
+.title h2 {
+  font-size: 26px;
+}
+
+.description p {
+  font-size: 18px;
 }

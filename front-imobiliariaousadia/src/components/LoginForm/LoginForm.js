@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../Button/Button';
 import './LoginForm.css';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -16,12 +17,9 @@ const LoginForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar as credenciais ao servidor e autenticar o usuário
+   
     console.log('Email:', email);
     console.log('Password:', password);
-
-    // Redirecionar para outra página ou componente após o envio do formulário
-    // Exemplo: history.push('/dashboard');
   };
 
   return (
@@ -53,7 +51,9 @@ const LoginForm = () => {
         <input type="submit" value="Sign In" />
         </div>
         <div className='Register'>
+          <Link to="/register">
           <Button name={'Register'}/>
+          </Link>
         </div>
       </form>
     </div>

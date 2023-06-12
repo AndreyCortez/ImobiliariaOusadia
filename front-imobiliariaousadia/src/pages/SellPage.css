@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 200vh; /* Ajuste a altura conforme necessário */
+    padding-left: 100px; /* Adicione espaçamento à esquerda conforme necessário */
+  }
+  
+  .house-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  

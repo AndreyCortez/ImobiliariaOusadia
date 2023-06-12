@@ -4,24 +4,30 @@ import Navbar from '../components/Navbar/Navbar.js';
 import ImageShow from '../components/ImageShow/ImageShow.js';
 import Information from '../components/Information/Information.js';
 import Description from '../components/Description/Description.js';
-import './HomePage.js';
 import './HousePage.css';
 import Button from '../components/Button/Button.js';
+import { Link, useParams } from 'react-router-dom';
 
 const HousePage = () => {
+  const { id } = useParams();
+
   return (
     <div>
       <Navbar />
-      <ImageShow />
 
-      <div className="container">
-        <div className="information-container">
-          <Information />
-        </div>
-        <div className="description-container">
-          <Description />
-          <div className="Button">
-            <Button name="Make your Apraisal" />
+        <ImageShow />
+
+        <div className="content-container">
+          <div className="information-container">
+            <Information id={id} />
+          </div>
+          <div className="description-container">
+            <Description id={id} />
+            <div className="Button">
+              <Link to={`/appraisal`}>
+                <Button name="Make your Appraisal" />
+              </Link>
+              
           </div>
         </div>
       </div>
