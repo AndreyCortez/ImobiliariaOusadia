@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './RegisterForm.css';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
-
+import { users } from '../../data';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const RegistrationForm = () => {
   const [fullName, setFullName] = useState('');
@@ -10,6 +12,10 @@ const RegistrationForm = () => {
   const [emailVerification, setEmailVerification] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVerification, setPasswordVerification] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [phone, setPhone] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupContent, setPopupContent] = useState('');
 
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
@@ -31,15 +37,59 @@ const RegistrationForm = () => {
     setPasswordVerification(event.target.value);
   };
 
+  const handleCpfChange = (event) => {
+    const inputCpf = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    setCpf(inputCpf);
+  };
+
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar os dados de registro ao servidor
-    console.log('Full Name:', fullName);
-    console.log('Email:', email);
-    console.log('Email Verification:', emailVerification);
-    console.log('Password:', password);
-    console.log('Password Verification:', passwordVerification);
+
+    // Verificar se o CPF já está presente na lista de usuários
+    const userExists = users.find((user) => user.cpf === cpf);
+
+    if (userExists) {
+      setPopupContent('User already exists');
+      setShowPopup(true);
+    } else if (email !== emailVerification) {
+      setPopupContent('Emails do not match');
+      setShowPopup(true);
+    } else if (password !== passwordVerification) {
+      setPopupContent('Passwords do not match');
+      setShowPopup(true);
+    } else {
+      // Criar um novo usuário apenas se o CPF não existir na lista de usuários
+      const newUser = {
+        cpf,
+        email,
+        phone,
+        password,
+        userType: 'client',
+        name: fullName,
+      };
+
+      // Adicionar o novo usuário ao array 'users'
+      users.push(newUser);
+
+      // Limpar os campos do formulário
+      setFullName('');
+      setEmail('');
+      setEmailVerification('');
+      setPassword('');
+      setPasswordVerification('');
+      setCpf('');
+      setPhone('');
+
+      setPopupContent('User registered successfully');
+      setShowPopup(true);
+      console.log('New User:', newUser);
+    }
   };
+  
 
   return (
     <div className="RegistrationForm">
@@ -95,16 +145,38 @@ const RegistrationForm = () => {
             onChange={handlePasswordVerificationChange}
           />
         </div>
+        <div>
+          <label htmlFor="cpf">CPF:</label>
+          <br />
+          <input
+            type="text"
+            id="cpf"
+            value={cpf}
+            onChange={handleCpfChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="phone">Phone:</label>
+          <br />
+          <input
+            type="text"
+            id="phone"
+            value={phone}
+            onChange={handlePhoneChange}
+          />
+        </div>
         <div className="submit-button">
           <input type="submit" value="Register" />
         </div>
         <div className='SignIn'>
           <Link to="/signin">
-          <Button name={'Sign In'}/>
+            <Button name={'Sign In'}/>
           </Link>
-          
         </div>
       </form>
+      <Popup open={showPopup} onClose={() => setShowPopup(false)}>
+        <div>{popupContent}</div>
+      </Popup>
     </div>
   );
 };
