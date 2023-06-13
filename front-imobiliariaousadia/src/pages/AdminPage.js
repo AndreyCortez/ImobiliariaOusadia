@@ -1,7 +1,9 @@
 import React from 'react';
 import Footer from '../components/Footer/Footer.js';
 import Navbar from '../components/Navbar/Navbar.js';
+import { Link } from 'react-router-dom';
 import './AdminPage.css'
+
 
 import { agentDetails } from '../data.js';
 import { FaEnvelope, FaPencilAlt, FaPhone } from 'react-icons/fa';
@@ -15,8 +17,16 @@ const AdminPage = ({AdminId}) => {
         <div className='admin-options'>
       <h1>Administrator's Page</h1>
       <button className='option-button'>Manage Administrators</button><br/>
-      <button className='option-button'>Manage Locations</button><br/>
+
+      <Link to="/managelocation">
+         <button className='option-button'>Manage Locations</button><br/>
+      </Link>
+      
       <button className='option-button'>Manage Customers</button><br/>
+      <Link to="/manageoffer">
+        <button className='option-button'>Manage Offers</button><br/>
+      </Link>
+      
       </div>
 
         <div className='admin-profile'>

@@ -116,5 +116,25 @@ export const houseDetails = [
   {id: '01235678',photos: [house9_1,house9_2, house9_3, house9_4],},
   ];
   
-
+  export const users = [
+    {cpf: '12345678900',email: 'usuario1@example.com',phone: '1234567890',password: 'senha1',userType: 'client',name: "John Doe"},
+    {cpf: '98765432100',email: 'usuario2@example.com',phone: '0987654321',password: 'senha2',userType: 'adm',name: "Jane Smith"},
+    {cpf: '11111111111',email: 'usuario3@example.com',phone: '1111111111',password: 'senha3',userType: 'client',name: "Robert Johnson"},
+    {cpf: '22222222222',email: 'usuario4@example.com',phone: '2222222222',password: 'senha4',userType: 'client',name: "Maria Garcia"},
+    {cpf: '33333333333',email: 'usuario5@example.com',phone: '3333333333',password: 'senha5',userType: 'client',name: "Mohammed Ahmed"},
+    {cpf: '44444444444',email: 'usuario6@example.com',phone: '4444444444',password: 'senha6',userType: 'client',name: "Sophia Chen"},
+    {cpf: '55555555555',email: 'usuario7@example.com',phone: '5555555555',password: 'senha7',userType: 'adm',name: "Alexandra Lee"},
+    {cpf: '66666666666',email: 'usuario8@example.com',phone: '6666666666',password: 'senha8',userType: 'client',name: "Alexandre Mcqueen"},
+  ];
   
+  export const houseStatus = [
+    {id: '01234567',status:'sold',owner: '12345678900',price: 250000},
+    {id: '01234568',status:'available',owner: '', price: 250000},
+    {id: '01234569',status:'available',owner: '', price: 250000},
+    {id: '01234578',status:'available',owner: '', price: 250000},
+    {id: '01234579',status:'available',owner: '', price: 250000},
+    {id: '01234589',status:'sold',owner: '55555555555', price: 250000},
+    {id: '01235678',status:'negotiation',owner: '66666666666', price: 250000},
+    {id: '01234678',status:'negotiation',owner: '55555555555', price: 150000},
+    {id: '01234679',status:'negotiation',owner: '55555555555', price: 450000},
+    ];

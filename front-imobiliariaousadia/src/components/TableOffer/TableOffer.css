@@ -1,0 +1,29 @@
+.manage-offer-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.offer-table {
+  width: 100%;
+  background-color: #bed5fa;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+.offer-table tr.highlighted-row {
+  background-color: #a9c9f3f1;
+}
+
+.offer-table th,
+.offer-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.offer-table thead th {
+  border-bottom: 1px solid black;
+}
+
+.offer-table tbody tr {
+  border-top: 1px solid black;
+}
