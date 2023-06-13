@@ -23,7 +23,6 @@ const Navbar = () => {
 
       <ul className={`nav-NavLinks ${showMenu ? 'show' : ''}`}>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/sell">Sell</NavLink></li>
         <li><NavLink to="/aboutus">About Us</NavLink></li>
         <li><NavLink to="/buy">Buy</NavLink></li>
         <li><NavLink to="/agents">Agents</NavLink></li>

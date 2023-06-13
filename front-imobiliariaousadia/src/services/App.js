@@ -22,7 +22,7 @@ const App = () =>{
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/housepage" element={<HousePage />} />
-        <Route path="/sellpage" element={<SellPage />} />
+        <Route path="/buy" element={<SellPage />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/managelocation" element={<ManageLocation/>} />
         <Route path="signin" element={<SignIn/>} />
@@ -33,7 +33,6 @@ const App = () =>{
         <Route path="/signin" element={<SingIn/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/appraisal' element={<Appraisal/>}/>
-        <Route path="/sell" element={<SellPage/>} />
         <Route path="/house/:id" element={<HousePage/>} />
       </Routes>
     </BrowserRouter>
