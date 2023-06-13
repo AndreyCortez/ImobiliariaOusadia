@@ -13,6 +13,7 @@ import Agents from '../pages/Agents';
 import SignIn from '../pages/SignIn';
 import Register from '../pages/Register';
 import Offer from '../pages/Offer';
+import ManageOffer from '../pages/ManageOffer';
 
 const App = () =>{
   return(
@@ -33,6 +34,7 @@ const App = () =>{
         <Route path='/register' element={<Register/>}/>
         <Route path='/offer' element={<Offer/>}/>
         <Route path="/sell" element={<SellPage/>} />
+        <Route path="/manageoffer" element={<ManageOffer/>} />
         <Route path="/house/:id" element={<HousePage/>} />
       </Routes>
     </BrowserRouter>

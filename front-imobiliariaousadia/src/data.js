@@ -134,7 +134,7 @@ export const houseDetails = [
     {id: '01234578',status:'available',owner: '', price: 250000},
     {id: '01234579',status:'available',owner: '', price: 250000},
     {id: '01234589',status:'sold',owner: '55555555555', price: 250000},
-    {id: '01234678',status:'available',owner: '', price: 250000},
-    {id: '01234679',status:'available',owner: '', price: 250000},
-    {id: '01235678',status:'sold',owner: '66666666666', price: 250000},
+    {id: '01235678',status:'negotiation',owner: '66666666666', price: 250000},
+    {id: '01234678',status:'negotiation',owner: '55555555555', price: 150000},
+    {id: '01234679',status:'negotiation',owner: '55555555555', price: 450000},
     ];
