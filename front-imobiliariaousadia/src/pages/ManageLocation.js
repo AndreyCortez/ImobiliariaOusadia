@@ -27,7 +27,7 @@ const ManageLocation = () => {
     console.log(`Deletar item com ID ${id}`);
     // Lógica para deletar o item com o ID fornecido
   };
-
+  const searchText = "Search by ID or address..";
   return (
     <div>
       <Navbar />
@@ -35,7 +35,9 @@ const ManageLocation = () => {
       
       <HeaderPage title={"Manage Location"}/>
       <h2>Property</h2>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} 
+      text={searchText}
+      />
       <TableProperties
         data={houseDetails}
         onEdit={handleEditar}

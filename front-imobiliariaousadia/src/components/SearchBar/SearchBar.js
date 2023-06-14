@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import './SearchBar.css';
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, text }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (event) => {
@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch }) => {
       <input
         className="SearchBar-input"
         type="text"
-        placeholder="Search by ID or address.."
+        placeholder={text}
         value={searchTerm}
         onChange={handleChange}
       />

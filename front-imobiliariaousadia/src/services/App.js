@@ -14,6 +14,7 @@ import SignIn from '../pages/SignIn';
 import Register from '../pages/Register';
 import Offer from '../pages/Offer';
 import ManageOffer from '../pages/ManageOffer';
+import ManageUsers from '../pages/ManageUsers';
 
 const App = () =>{
   return(
@@ -36,6 +37,8 @@ const App = () =>{
         <Route path="/sell" element={<SellPage/>} />
         <Route path="/manageoffer" element={<ManageOffer/>} />
         <Route path="/house/:id" element={<HousePage/>} />
+        <Route path="/manageadm" element={<ManageUsers typeUser={"adm"}/>} />
+        <Route path="/manageclient" element={<ManageUsers typeUser={"client"}/>} />
       </Routes>
     </BrowserRouter>
     </>

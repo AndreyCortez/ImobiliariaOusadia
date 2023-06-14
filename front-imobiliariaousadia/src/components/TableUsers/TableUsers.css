@@ -1,0 +1,33 @@
+/* TableProperties.css */
+
+.table-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .table-container table {
+    width: 100%;
+    background-color: #bed5fa;
+    border-collapse: separate;
+    border-spacing: 10px;
+  }
+  
+  
+  .table-container tr.highlighted-row {
+    background-color: #a9c9f3f1; /* ou qualquer outra cor que desejar */
+  }
+  
+  .table-container th,
+  .table-container td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .table-container thead th {
+    border-bottom: 1px solid black;
+  }
+  
+  .table-container tbody tr {
+    border-top: 1px solid black;
+  }
+  

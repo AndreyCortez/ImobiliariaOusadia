@@ -16,14 +16,18 @@ const AdminPage = ({AdminId}) => {
       <div className='page-container'>
         <div className='admin-options'>
       <h1>Administrator's Page</h1>
-      <button className='option-button'>Manage Administrators</button><br/>
+
+      <Link to={`/manageadm`}>
+        <button className='option-button'>Manage Administrators</button><br/>
+      </Link>
 
       <Link to="/managelocation">
          <button className='option-button'>Manage Locations</button><br/>
       </Link>
-      
-      <button className='option-button'>Manage Customers</button><br/>
-      <Link to="/manageoffer">
+      <Link to="/manageclient">
+        <button className='option-button'>Manage Customers</button><br/>
+      </Link>
+            <Link to="/manageoffer">
         <button className='option-button'>Manage Offers</button><br/>
       </Link>
       
