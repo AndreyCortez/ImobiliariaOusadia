@@ -22,7 +22,7 @@ const AgentPage = () => {
     <div>
       <Navbar />
       
-      <div className= 'agent-container'>
+      <div className= 'agent-123-container'>
       <img className='agent-image' src={Agent.image}/>
       <div className='agent-data'>
 
@@ -45,7 +45,7 @@ const AgentPage = () => {
         Vila Pureza, Vila Rancho Velho, Vila Santa Madre Cabrini, Vila São José, Vila Sonia, Vila Vista Alegre
 
       </div>
-      <hr className='vline'/>
+      <hr className='agent-vline'/>
       <div className = 'awards'>
         <h2>Awards</h2>
         <div className='awards-img'>
@@ -55,7 +55,7 @@ const AgentPage = () => {
         </div>
       </div>
 
-      <hr className='vline'/>
+      <hr className='agent-vline'/>
       </div>
 
       <div className='bottom-container'>

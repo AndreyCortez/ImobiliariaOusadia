@@ -1,5 +1,5 @@
-.agent-container {
-    width: auto;
+.agent-123-container {
+    width: 1000px;
     display: flex;
     justify-self: center;
     margin-inline: 400px;
@@ -48,7 +48,7 @@
     margin: 30px;
 }
 
-.vline{
+.agent-vline{
     border-left:1px solid #000;
     height:350px;
     margin: 20px;
