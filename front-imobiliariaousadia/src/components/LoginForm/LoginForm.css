@@ -8,7 +8,8 @@
   justify-content: center;
   align-items: center;
   padding: 30px;
-  margin: 30px;
+  margin-block: 30px;
+  margin-inline: 270px;
   position: relative;
   top: 10px;
   left: 300px;
