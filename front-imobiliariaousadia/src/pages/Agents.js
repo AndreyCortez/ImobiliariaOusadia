@@ -19,14 +19,12 @@ const Agents = () => {
       <HeaderPage
         title="Find Your Agent"
       />
-      <div className="container">
         <div className="house-list">
           {Array.from(agentDetails).map((agent, index) => (
             <AgentContainer agent = {agent}
             />
           ))}
         </div>
-      </div>
       <Footer/>
       </div>
      

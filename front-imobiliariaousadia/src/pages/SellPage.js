@@ -17,14 +17,12 @@ const SellPage = () => {
       <HeaderPage
         title="Buy your House"
       />
-      <div className="container">
         <div className="house-list">
           {houseDetails.map((house, index) => (
             <ImgContainer houseDetails = {house}
             />
           ))}
         </div>
-      </div>
       <Footer/>
       </div>
      

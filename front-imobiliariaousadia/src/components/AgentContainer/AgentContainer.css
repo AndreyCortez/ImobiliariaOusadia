@@ -4,7 +4,7 @@
     width: 350px;
     font-family: "DM Sans", sans-serif;
     display: inline-block;
-    margin-left: 80px;
+    margin-inline: 80px;
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: #F8F8F8;
