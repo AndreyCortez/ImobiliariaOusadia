@@ -22,13 +22,12 @@ const App = () =>{
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/housepage" element={<HousePage />} />
-        <Route path="/buy" element={<SellPage />} />
+        <Route path="/sellpage" element={<SellPage />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/managelocation" element={<ManageLocation/>} />
         <Route path="signin" element={<SignIn/>} />
         <Route path="/profile" element={<Profile UserId = {1}/>} />
-        <Route path="/agent" element={<AgentPage AgentId = {0} />}/>
+        <Route path="/agent/:id" element={<AgentPage />}/>
         <Route path="/agents" element={<Agents/>}/>
         <Route path="/adminpage" element={<AdminPage AdminId={0}/>}/>
         <Route path="/signin" element={<SingIn/>}/>

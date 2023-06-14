@@ -1,35 +1,36 @@
 import React from 'react';
 import './AgentContainer.css';
+import { Link } from 'react-router-dom';  
 
 import { FaPhone, FaEnvelope } from 'react-icons/fa';
-const AgentContainer = ({ image, email, name, telefone}) => {
+const AgentContainer = ({ agent}) => {
 
   
   return (
+    <Link to={`/agent/${agent.id}`}>
     <div className="agent-container">
-    
-    <a href='oi'>
-      <img className="agent-image" src={image} alt="House" />
-    </a>
+ 
+      <img className="agent-image" src={agent.image} alt="House" />
       <div className='agent-address'>
-        <h2>{name}</h2>
+        <h2>{agent.name}</h2>
       </div>
      
       <div className="agent-details">
         <div className="icon">
           <FaEnvelope />
           <div className="info">
-            <p>{email}</p>
+            <p>{agent.email}</p>
           </div>
         </div>
         <div className="icon">
           <FaPhone />
           <div className="info">
-            <p>{telefone}</p>
+            <p>{agent.telefone}</p>
           </div>
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

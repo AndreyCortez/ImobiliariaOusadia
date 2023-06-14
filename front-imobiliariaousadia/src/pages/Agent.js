@@ -11,10 +11,12 @@ import './Agent.css'
 
 import { FaStar, FaPhone, FaEnvelope  } from 'react-icons/fa';
 import {agentDetails, houseDetails} from '../data.js'
+import { useParams } from 'react-router-dom';
 
-const AgentPage = ({AgentId}) => {
+const AgentPage = () => {
 
-    let Agent = agentDetails[AgentId];
+    let {id} = useParams();
+    let Agent = agentDetails[id];
 
   return (
     <div>

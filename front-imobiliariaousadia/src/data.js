@@ -56,13 +56,13 @@ import house9_3 from './assets/Houses/house9_3.jpg';
 import house9_4 from './assets/Houses/house9_4.jpg';
 
 export const agentDetails = [
-    { image: agentimage1, name: "John Doe", email: "johndoe@example.com", telefone: "1111111-11" },
-    { image: agentimage2, name: "Jane Smith", email: "janesmith@example.com", telefone: "2222222-22" },
-    { image: agentimage3, name: "Robert Johnson", email: "robertjohnson@example.com", telefone: "3333333-33" },
-    { image: agentimage4, name: "Maria Garcia", email: "mariagarcia@example.com", telefone: "4444444-44" },
-    { image: agentimage5, name: "Mohammed Ahmed", email: "mohammedahmed@example.com", telefone: "5555555-55" },
-    { image: agentimage6, name: "Sophia Chen", email: "sophiachen@example.com", telefone: "6666666-66" },
-    { image: agentimage7, name: "Alexandra Lee", email: "alexandralee@example.com", telefone: "7777777-77" },
+    { image: agentimage1, id: '0', name: "John Doe", email: "johndoe@example.com", telefone: "1111111-11" },
+    { image: agentimage2, id: '1', name: "Jane Smith", email: "janesmith@example.com", telefone: "2222222-22" },
+    { image: agentimage3, id: '2', name: "Robert Johnson", email: "robertjohnson@example.com", telefone: "3333333-33" },
+    { image: agentimage4, id: '3', name: "Maria Garcia", email: "mariagarcia@example.com", telefone: "4444444-44" },
+    { image: agentimage5, id: '4', name: "Mohammed Ahmed", email: "mohammedahmed@example.com", telefone: "5555555-55" },
+    { image: agentimage6, id: '5', name: "Sophia Chen", email: "sophiachen@example.com", telefone: "6666666-66" },
+    { image: agentimage7, id: '6', name: "Alexandra Lee", email: "alexandralee@example.com", telefone: "7777777-77" },
   ];
 
   export const userDetails = [

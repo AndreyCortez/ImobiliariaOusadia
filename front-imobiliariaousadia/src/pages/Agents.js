@@ -22,12 +22,7 @@ const Agents = () => {
       <div className="container">
         <div className="house-list">
           {Array.from(agentDetails).map((agent, index) => (
-            <AgentContainer
-              key={index}
-              name = {agent.name}
-              image={agent.image}
-              email={agent.email}
-              telefone={agent.telefone}
+            <AgentContainer agent = {agent}
             />
           ))}
         </div>
