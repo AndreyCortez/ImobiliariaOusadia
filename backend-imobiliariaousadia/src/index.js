@@ -9,8 +9,9 @@ connectDB();
 const app = express();
 app.use(express.json()); // Parse JSON data
 
-//routes
+//import routes
 const houseRouter = require('./routers/houseRouter');
+const userRouter = require('./routers/userRouter');
 
 app.use(cors());
 
@@ -18,8 +19,9 @@ app.get('/', (req, res) => {
   res.send('rota básica');
 });
 
-// Mount the houseRouter at the desired endpoint
+//using routes
 app.use('/houses', houseRouter);
+app.use('/users', userRouter);
 
 const port = 3000;
 const server = http.createServer(app);
