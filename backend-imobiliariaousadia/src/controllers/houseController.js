@@ -1,6 +1,6 @@
 // house.controller.js
 
-const House = require('../model/houseModel');
+const House = require('../models/houseModel');
 
 // Function to get all houses
 const getAllHouses = async (req, res) => {
