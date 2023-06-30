@@ -13,6 +13,7 @@ app.use(express.json()); // Parse JSON data
 const houseRouter = require('./routers/houseRouter');
 const userRouter = require('./routers/userRouter');
 const transactionRouter = require('./routers/transactionRouter');
+const soldHouseRouter = require('./routers/soldHouseRouter');
 
 app.use(cors());
 
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 app.use('/houses', houseRouter);
 app.use('/users', userRouter);
 app.use('/transaction', transactionRouter);
+app.use('/soldhouse', soldHouseRouter);
 
 const port = 3000;
 const server = http.createServer(app);

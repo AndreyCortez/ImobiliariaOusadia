@@ -40,7 +40,19 @@ const getTransactionsByHouseId = async (req, res) => {
 };
 
 
+// Get all transactions
+const getAllTransactions = async (req, res) => {
+  try {
+    const transactions = await Transaction.find();
+    res.json(transactions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 module.exports = {
   executeTransaction,
   getTransactionsByHouseId,
+  getAllTransactions
 };
