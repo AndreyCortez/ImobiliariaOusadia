@@ -8,7 +8,7 @@ import {AiFillCar} from 'react-icons/ai';
 
 const ImgContainer = ({ houseDetails }) => {
   return (
-    <Link to={`/house/${houseDetails.id}`}>
+    <Link to={`/house/${houseDetails._id}`}>
     <div className="house-container">
     <img className="house-image" src={houseDetails.image} alt="House" />
       <div className='house-address'>

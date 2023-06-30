@@ -35,7 +35,19 @@ const houseSchema = new mongoose.Schema({
   address: {
     type: String,
     required: true
-  }
+  },
+  city: {
+    type: String,
+    required: true
+  },
+  typeOfProperty: {
+    type: String,
+    required: true
+  },
+  landSize: {
+    type: Number,
+    required: true
+  },
 });
 
 // Create the house model
