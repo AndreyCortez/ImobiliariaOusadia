@@ -9,8 +9,6 @@ const OfferForm = () => {
     email: "",
     phone: "",
     Offer: "",
-    PropertyID: "",
-    PropertyType: "House",
     Payment: "Credit Card",
     cpf: "",
   });
@@ -121,32 +119,6 @@ const OfferForm = () => {
       </div>
 
       <div className="column2">
-        <label htmlFor="PropertyID">Property ID</label>
-        <br />
-        <input
-          type="text"
-          id="PropertyID"
-          name="PropertyID"
-          pattern="[0-9]+"
-          maxLength="8"
-          value={formData.PropertyID}
-          onChange={handleChange}
-          required
-        />
-        <br />
-
-        <label htmlFor="PropertyType">Property Type</label>
-        <br />
-        <select
-          id="PropertyType"
-          name="PropertyType"
-          value={formData.PropertyType}
-          onChange={handleChange}
-        >
-          <option value="House">House</option>
-          <option value="Apartment">Apartment</option>
-        </select>
-        <br />
 
         <label htmlFor="Payment">Payment Type</label>
         <br />
