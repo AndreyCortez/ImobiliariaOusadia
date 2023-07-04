@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { users } from '../../data';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import axios from 'axios';
+
+import { backendUrl } from '../../config';
 
 const RegistrationForm = () => {
   const [fullName, setFullName] = useState('');
@@ -46,9 +49,8 @@ const RegistrationForm = () => {
     setPhone(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
 
     if (
       fullName === '' ||
@@ -62,45 +64,36 @@ const RegistrationForm = () => {
       setPopupContent('Please fill in all fields');
       setShowPopup(true);
     } else {
-    // Verificar se o CPF já está presente na lista de usuários
-    const userExists = users.find((user) => user.cpf === cpf);
-
-    if (userExists) {
-      setPopupContent('User already exists');
-      setShowPopup(true);
-    } else if (email !== emailVerification) {
-      setPopupContent('Emails do not match');
-      setShowPopup(true);
-    } else if (password !== passwordVerification) {
-      setPopupContent('Passwords do not match');
-      setShowPopup(true);
-    } else {
-      // Criar um novo usuário apenas se o CPF não existir na lista de usuários
-      const newUser = {
-        cpf,
-        email,
-        phone,
-        password,
-        userType: 'client',
-        name: fullName,
-      };
-
-      // Adicionar o novo usuário ao array 'users'
-      users.push(newUser);
-
-      // Limpar os campos do formulário
-      setFullName('');
-      setEmail('');
-      setEmailVerification('');
-      setPassword('');
-      setPasswordVerification('');
-      setCpf('');
-      setPhone('');
-
-      setPopupContent('User registered successfully');
-      setShowPopup(true);
-      console.log('New User:', newUser);
-    }
+      try {
+        // Send the POST request to the backend
+        const response = await axios.post(backendUrl + '/users', {
+          name: fullName,
+          email,
+          cpf,
+          phone,
+          password,
+          isAdmin: false, // Assuming isAdmin is set to false for regular users
+        });
+    
+        // Handle the response
+        console.log('User registered successfully:', response.data);
+        setPopupContent('User registered successfully');
+        setShowPopup(true);
+    
+        // Clear the form fields
+        setFullName('');
+        setEmail('');
+        setEmailVerification('');
+        setPassword('');
+        setPasswordVerification('');
+        setCpf('');
+        setPhone('');
+      } catch (error) {
+        // Handle the error
+        console.error('Error registering user:', error);
+        setPopupContent('Error registering user');
+        setShowPopup(true);
+      }
   }
   };
   
