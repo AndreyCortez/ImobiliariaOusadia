@@ -1,62 +1,107 @@
 .apraisals-container {
-    display: block;
-    width: 1600px;
-    text-align: center;
+  display: block;
+  width: 1600px;
+  text-align: center;
 }
 
-.page-container
-{
-    display: flex;
+.page-container {
+  display: flex;
 }
 
-.profile-container
-{
-    font-size: 25px;
-    display: block;
-    padding-top: 50px;
-    padding-inline: 100px;
+.profile-container {
+  font-size: 25px;
+  display: block;
+  padding-top: 50px;
+  padding-inline: 100px;
 }
 
 .profile-container p {
-    text-align: center;
-    align-items: center;
-    align-content: center;
-    font-size: 15px;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  font-size: 15px;
 }
 
-.profile-image 
-{
-    margin-left: 50px;
+.profile-image {
+  margin-left: 50px;
   width: 200px;
   height: 200px;
-    border-radius: 50%;
-  }
+  border-radius: 50%;
+}
 
-.vline{
-    border-left:1px solid #000;
-    height:1200px;
-    margin: 20px;
+.vline {
+  border-left: 1px solid #000;
+  height: 1200px;
+  margin: 20px;
 }
 
 .edit-button {
-    background-color: white;
-    display:inline-block;
-    cursor:pointer;
-    color: black;
-    font-family:Arial;
-    font-size:23px;
-    font-weight:bold;
-    border-color: black;
-    margin: 20px;
-    padding: 13px ;
-    padding-inline: 20px;
-    width: 300px;
-  }
-  .edit-button:hover {
-    background-color:#408c99;
-  }
-  .edit-button:active {
-    position:relative;
-    top:1px;
-  }
-  
+  background-color: white;
+  display: inline-block;
+  cursor: pointer;
+  color: black;
+  font-family: Arial;
+  font-size: 23px;
+  font-weight: bold;
+  border-color: black;
+  margin: 20px;
+  padding: 13px;
+  padding-inline: 20px;
+  width: 300px;
+}
+
+.edit-button:hover {
+  background-color: #408c99;
+}
+
+.edit-button:active {
+  position: relative;
+  top: 1px;
+}
+
+.edit-popup {
+  max-width: 400px;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.edit-popup h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.edit-popup form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-popup .form-group {
+  margin-bottom: 20px;
+}
+
+.edit-popup label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.edit-popup input[type='email'],
+.edit-popup input[type='tel'] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.edit-popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
