@@ -19,9 +19,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  telefone: {
+  phone: {
     type: String,
-    required: true,
+  },
+  imgProfile: {
+    type: String,
   },
   isAdmin: {
     type: Boolean,

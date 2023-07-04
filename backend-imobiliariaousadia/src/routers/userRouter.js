@@ -8,11 +8,13 @@ const {
   getUsersByRole,
 } = require('../controllers/userController');
 
-const authenticateUser = require('../middleware/Auth');
+const handleUpload = require('../controllers/upload')
 
+const authenticateUser = require('../middleware/Auth');
 
 const userRouter = express.Router();
 
+userRouter.post('/upload', handleUpload);
 userRouter.post('/', createUser);
 userRouter.get('/', authenticateUser, getAllUsers);
 userRouter.get('/:id', getUserById);
