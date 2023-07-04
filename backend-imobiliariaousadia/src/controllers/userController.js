@@ -1,10 +1,12 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
+const multer = require('multer');
+const path = require('path');
 
 // Create a new user
 const createUser = async (req, res) => {
   try {
-    const { name, email, password, cpf, isAdmin } = req.body;
+    const { name, email, password, cpf, isAdmin, imgProfile, phone } = req.body;
 
     // Check if the email or CPF already exists
     const existingUser = await User.findOne({ $or: [{ email }, { cpf }] });
@@ -16,7 +18,15 @@ const createUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create a new user instance
-    const newUser = new User({ name, email, password: hashedPassword, cpf, isAdmin });
+    const newUser = new User({
+      name,
+      email,
+      password: hashedPassword,
+      cpf,
+      isAdmin,
+      imgProfile,
+      phone,
+    });
 
     // Save the user to the database
     await newUser.save();
@@ -27,6 +37,7 @@ const createUser = async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
 
 
 const getUserById = async (req, res) => {
@@ -43,17 +54,25 @@ const getUserById = async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch user' });
   }
 };
-
-
+    
 const updateUser = async (req, res) => {
   const { id } = req.params;
-  const { name, email, password, isAdmin } = req.body;
+  const { name, email, password, isAdmin, phone, imgProfile } = req.body;
 
   try {
-    const user = await User.findByIdAndUpdate(id, { name, email, password, isAdmin }, { new: true });
+    const updateFields = { name, email, password, isAdmin };
+    if (phone) {
+      updateFields.phone = phone;
+    }
+    if (imgProfile) {
+      updateFields.imgProfile = imgProfile;
+    }
+
+    const user = await User.findByIdAndUpdate(id, updateFields, { new: true });
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
+
     console.log('User updated:', user);
     res.json(user);
   } catch (error) {
@@ -61,6 +80,7 @@ const updateUser = async (req, res) => {
     res.status(500).json({ error: 'Failed to update user' });
   }
 };
+
 
 const deleteUser = async (req, res) => {
   const { id } = req.params;
@@ -106,5 +126,5 @@ module.exports = {
     updateUser,
     deleteUser,
     getUsersByRole,
-    getAllUsers
+    getAllUsers, 
   };
