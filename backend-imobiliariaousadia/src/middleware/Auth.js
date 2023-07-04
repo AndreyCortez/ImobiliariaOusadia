@@ -1,24 +1,26 @@
-// middlewares/auth.js
-
 const jwt = require('jsonwebtoken');
-const { jwtSecret } = require('../config');
+const  config  = require('../config');
 
-// Middleware function to authenticate user requests
 const authenticateUser = (req, res, next) => {
-  // Extract the token from the request headers, query string, or cookies
-  const token = req.headers.authorization?.split(' ')[1] || req.query.token || req.cookies.token;
-
-  if (!token) {
-    return res.status(401).json({ error: 'Authentication required' });
-  }
-
   try {
+    // Check if the Authorization header is present
+    if (!req.headers.authorization) {
+      throw new Error('Authentication required');
+    }
+
+    // Extract the token from the Authorization header
+    const token = req.headers.authorization.replace('Bearer ', '');
+
     // Verify and decode the token using the secret key
-    const decoded = jwt.verify(token, jwtSecret);
-    req.user = decoded; // Attach the user information to the request object
-    next(); // Continue to the next middleware or route handler
+    const decoded = jwt.verify(token, config.jwtSecret);
+
+    // Attach the user information to the request object
+    req.user = decoded;
+
+    // Continue to the next middleware or route handler
+    next();
   } catch (error) {
-    return res.status(401).json({ error: 'Invalid token' });
+    res.status(401).json({ error: error.message });
   }
 };
 

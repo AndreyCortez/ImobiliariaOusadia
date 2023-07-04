@@ -8,10 +8,13 @@ const {
   getUsersByRole,
 } = require('../controllers/userController');
 
+const authenticateUser = require('../middleware/Auth');
+
+
 const userRouter = express.Router();
 
 userRouter.post('/', createUser);
-userRouter.get('/', getAllUsers);
+userRouter.get('/', authenticateUser, getAllUsers);
 userRouter.get('/:id', getUserById);
 userRouter.put('/:id', updateUser);
 userRouter.delete('/:id', deleteUser);

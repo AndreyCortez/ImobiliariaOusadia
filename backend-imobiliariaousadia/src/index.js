@@ -14,6 +14,7 @@ const houseRouter = require('./routers/houseRouter');
 const userRouter = require('./routers/userRouter');
 const transactionRouter = require('./routers/transactionRouter');
 const soldHouseRouter = require('./routers/soldHouseRouter');
+const authRouter = require('./routers/authRouter');
 
 app.use(cors());
 
@@ -26,6 +27,8 @@ app.use('/houses', houseRouter);
 app.use('/users', userRouter);
 app.use('/transaction', transactionRouter);
 app.use('/soldhouse', soldHouseRouter);
+app.use('/auth', authRouter);
+
 
 const port = 3000;
 const server = http.createServer(app);
