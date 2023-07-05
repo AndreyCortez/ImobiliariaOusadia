@@ -7,10 +7,10 @@ const AgentContainer = ({ agent}) => {
 
   
   return (
-    <Link to={`/agent/${agent.id}`}>
+    <Link to={`/agent/${agent._id}`}>
     <div className="agent-container">
  
-      <img className="agent-image" src={agent.image} alt="House" />
+      <img className="agent-image" src={agent.image} alt="Agent" />
       <div className='agent-address'>
         <h2>{agent.name}</h2>
       </div>
@@ -25,7 +25,7 @@ const AgentContainer = ({ agent}) => {
         <div className="icon">
           <FaPhone />
           <div className="info">
-            <p>{agent.telefone}</p>
+            <p>{agent.phone}</p>
           </div>
         </div>
       </div>

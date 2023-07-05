@@ -36,8 +36,8 @@ const App = () =>{
         <Route path="/sell" element={<SellPage/>} />
         <Route path="/manageoffer" element={<ManageOffer/>} />
         <Route path="/house/:id" element={<HousePage/>} />
-        <Route path="/manageadm" element={<ManageUsers typeUser={"adm"}/>} />
-        <Route path="/manageclient" element={<ManageUsers typeUser={"client"}/>} />
+        <Route path="/manageadm" element={<ManageUsers type={"admin"}/>} />
+        <Route path="/manageclient" element={<ManageUsers type={"client"}/>} />
       </Routes>
     </BrowserRouter>
     </>
