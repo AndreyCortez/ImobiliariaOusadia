@@ -28,20 +28,6 @@ const ManageUsers = ({ type }) => {
     setSearchText(searchTerm);
   };
 
-  const handleEditar = (id) => {
-    console.log(`Editar item com ID ${id}`);
-    // Lógica para editar o item com o ID fornecido
-  };
-
-  const handleVisualizar = (id) => {
-    console.log(`Visualizar item com ID ${id}`);
-    // Lógica para visualizar o item com o ID fornecido
-  };
-
-  const handleDeletar = (id) => {
-    console.log(`Deletar item com ID ${id}`);
-    // Lógica para deletar o item com o ID fornecido
-  };
 
   const filteredUsersData = usersData.filter(
     (user) =>
@@ -58,9 +44,6 @@ const ManageUsers = ({ type }) => {
         <SearchBar onSearch={handleSearch} text="search by Name or email" />
         <TableUsers
           data={filteredUsersData}
-          onEdit={handleEditar}
-          onView={handleVisualizar}
-          onDelete={handleDeletar}
         />
       </div>
       <Footer />
