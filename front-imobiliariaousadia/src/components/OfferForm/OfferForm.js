@@ -53,8 +53,6 @@ const OfferForm = () => {
       email: "",
       phone: "",
       Offer: "",
-      PropertyID: "",
-      PropertyType: "House",
       Payment: "Credit Card",
       cpf: "",
     });

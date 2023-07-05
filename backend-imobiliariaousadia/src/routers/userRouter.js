@@ -16,7 +16,7 @@ const userRouter = express.Router();
 
 userRouter.post('/upload', handleUpload);
 userRouter.post('/', createUser);
-userRouter.get('/', authenticateUser, getAllUsers);
+userRouter.get('/', getAllUsers);
 userRouter.get('/:id', getUserById);
 userRouter.put('/:id', updateUser);
 userRouter.delete('/:id', deleteUser);
