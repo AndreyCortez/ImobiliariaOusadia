@@ -12,7 +12,7 @@ app.use(express.json()); // Parse JSON data
 //import routes
 const houseRouter = require('./routers/houseRouter');
 const userRouter = require('./routers/userRouter');
-const transactionRouter = require('./routers/transactionRouter');
+const offerRouter = require('./routers/offerRouter');
 const soldHouseRouter = require('./routers/soldHouseRouter');
 const authRouter = require('./routers/authRouter');
 
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 //using routes
 app.use('/houses', houseRouter);
 app.use('/users', userRouter);
-app.use('/transaction', transactionRouter);
+app.use('/offer', offerRouter);
 app.use('/soldhouse', soldHouseRouter);
 app.use('/auth', authRouter);
 
