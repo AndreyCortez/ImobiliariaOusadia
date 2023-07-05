@@ -1,4 +1,5 @@
 const Offer = require('../models/offerModel');
+const SoldHouse = require('../models/soldHouseModel');
 
 // Execute an offer
 const executeOffer = async (req, res) => {
@@ -81,16 +82,32 @@ const getAllOffersPending = async (req, res) => {
   }
 };
 
-// Update offer status
+// Update offer status and create SoldHouse if accepted
 const updateOffer = async (req, res) => {
   const { offerId } = req.params;
-  const { status } = req.body;
+  const { status, realtorId } = req.body;
 
   try {
-    const updatedOffer = await Offer.findByIdAndUpdate(offerId, { status }, { new: true });
+    const updatedOffer = await Offer.findByIdAndUpdate(
+      offerId,
+      { status, realtorId },
+      { new: true }
+    );
 
     if (!updatedOffer) {
       return res.status(404).json({ error: 'Offer not found' });
+    }
+
+    if (status === 'accepted') {
+      const { houseId, userId } = updatedOffer;
+
+      const soldHouse = new SoldHouse({
+        realtorId,
+        clientId: userId,
+        houseId,
+      });
+
+      await soldHouse.save();
     }
 
     res.status(200).json(updatedOffer);
@@ -99,6 +116,7 @@ const updateOffer = async (req, res) => {
     res.status(500).json({ error: 'Failed to update offer' });
   }
 };
+
 
 module.exports = {
   executeOffer,

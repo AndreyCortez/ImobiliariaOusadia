@@ -24,6 +24,10 @@ const offerSchema = new mongoose.Schema({
     enum: ['pending', 'accepted', 'rejected'],
     default: 'pending',
   },
+  realtorId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  }
 });
 
 const Offer = mongoose.model('Offer', offerSchema);
