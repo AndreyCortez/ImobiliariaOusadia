@@ -1,0 +1,48 @@
+.AddProperty {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.AddProperty h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.AddProperty form {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddProperty div {
+  margin-bottom: 10px;
+}
+
+.AddProperty label {
+  font-weight: bold;
+}
+
+.AddProperty input,
+.AddProperty textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.AddProperty .submit-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.AddProperty input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.AddProperty input[type="submit"]:hover {
+  background-color: #45a049;
+}

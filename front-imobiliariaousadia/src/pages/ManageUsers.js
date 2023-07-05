@@ -6,8 +6,12 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import axios from "axios";
 import { backendUrl } from "../config.js";
 import "./ManageLocation.css";
+import 'reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
+import AddUser from "../components/AddUser/AddUser";
 
 const ManageUsers = ({ type }) => {
+  const [showModal, setShowModal] = useState(false);
   const [usersData, setUsersData] = useState([]);
   const [searchText, setSearchText] = useState("");
 
@@ -28,6 +32,13 @@ const ManageUsers = ({ type }) => {
     setSearchText(searchTerm);
   };
 
+  const handleAddProperty = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const filteredUsersData = usersData.filter(
     (user) =>
@@ -45,8 +56,14 @@ const ManageUsers = ({ type }) => {
         <TableUsers
           data={filteredUsersData}
         />
+        <button className="button" onClick={handleAddProperty}>Add new User</button>
       </div>
       <Footer />
+      {showModal && (
+        <Popup open={showModal} onClose={handleCloseModal}>
+        <AddUser userType = {type} />
+        </Popup>
+        )}
     </>
   );
 };
