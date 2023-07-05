@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { users, houseStatus } from "../../data";
 import Popup from "reactjs-popup";
 import "./OfferForm.css";
+import axios from 'axios';
+import { backendUrl } from '../../config.js';
+import { useParams } from 'react-router-dom';
+
 
 const OfferForm = () => {
+  const { id } = useParams();
   const [formData, setFormData] = useState({
-    fname: "",
-    email: "",
-    phone: "",
-    Offer: "",
-    Payment: "Credit Card",
     cpf: "",
+    Payment: "Credit Card",
+    Offer: "",
   });
 
   const [errorMsg, setErrorMsg] = useState("");
@@ -19,104 +20,67 @@ const OfferForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const user = users.find((user) => user.cpf === formData.cpf);
+    try {
+      const response = await axios.get(backendUrl+`/users`);
+      const users = response.data;
 
-    if (!user) {
-      setErrorMsg("CPF does not exist");
-      return;
+      const filteredUsers = users.filter((user) => user.cpf === formData.cpf);
+
+      if (filteredUsers.length === 0) {
+        setErrorMsg("CPF does not exist");
+        return;
+      }
+
+      const user = filteredUsers[0];
+
+      if (!user) {
+        setErrorMsg("CPF does not exist");
+        return;
+      }
+
+      const newOffer = {
+        houseId: id,
+        value: formData.Offer,
+        paymentMethod: formData.Payment,
+        userId: user._id,
+        status: "pending",
+      };
+
+      await axios.post(backendUrl+"/offer", newOffer);
+
+      console.log("Form data:", formData);
+      console.log("New offer:", newOffer);
+
+      setFormData({
+        cpf: "",
+        Payment: "Credit Card",
+        Offer: "",
+      });
+      setErrorMsg("");
+    } catch (error) {
+      console.error("Error creating offer:", error);
+      setErrorMsg("Error creating offer");
     }
-
-    const house = houseStatus.find((item) => item.id === formData.PropertyID);
-
-    if (!house || house.status === "sold") {
-      setErrorMsg("House does not exist or is sold");
-      return;
-    }
-
-    const newHouse = {
-      id: formData.PropertyID,
-      status: "negotiation",
-      owner: user.cpf,
-      price: formData.Offer,
-    };
-
-    houseStatus.push(newHouse);
-
-    console.log("Form data:", formData);
-    console.log("New house status:", newHouse);
-
-    setFormData({
-      fname: "",
-      email: "",
-      phone: "",
-      Offer: "",
-      Payment: "Credit Card",
-      cpf: "",
-    });
-    setErrorMsg("");
   };
 
   return (
     <form className="OfferForm" onSubmit={handleSubmit}>
       <div className="column2">
-        <label htmlFor="fname">First name</label>
+        <label htmlFor="cpf">CPF</label>
         <br />
         <input
           type="text"
-          id="fname"
-          name="fname"
-          value={formData.fname}
-          onChange={handleChange}
-          required
-        />
-        <br />
-
-        <label htmlFor="email">E-mail for Contact</label>
-        <br />
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <br />
-
-        <label htmlFor="phone">Phone for Contact</label>
-        <br />
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
+          id="cpf"
+          name="cpf"
           pattern="[0-9]+"
-          value={formData.phone}
+          value={formData.cpf}
           onChange={handleChange}
           required
         />
         <br />
-
-        <label htmlFor="Offer">Initial Value Offered</label>
-        <br />
-        <input
-          type="number"
-          id="Offer"
-          name="Offer"
-          pattern="[0-9]+"
-          value={formData.Offer}
-          onChange={handleChange}
-          required
-        />
-        <br />
-      </div>
-
-      <div className="column-divider">
-        <hr className="column-divider" />
-      </div>
-
-      <div className="column2">
 
         <label htmlFor="Payment">Payment Type</label>
         <br />
@@ -132,14 +96,14 @@ const OfferForm = () => {
         </select>
         <br />
 
-        <label htmlFor="cpf">CPF</label>
+        <label htmlFor="Offer">Initial Value Offered</label>
         <br />
         <input
-          type="text"
-          id="cpf"
-          name="cpf"
+          type="number"
+          id="Offer"
+          name="Offer"
           pattern="[0-9]+"
-          value={formData.cpf}
+          value={formData.Offer}
           onChange={handleChange}
           required
         />

@@ -1,32 +1,44 @@
 .OfferForm {
   display: flex;
-  margin-inline: 200px;
+  justify-content: center;
+}
+
+.container {
+  width: 600px;
+  height: 400px;
+  display: flex;
   justify-content: space-between;
 }
 
 .column1 {
   flex-basis: 50%;
-  padding-right: 150px; 
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .column2 {
   flex-basis: 50%;
-  padding-left: 130px; 
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .column-divider {
-  width: 1px; 
-  background-color: rgb(78, 76, 76); 
+  width: 1px;
+  background-color: rgb(78, 76, 76);
   margin: 20px 0;
 }
 
 .OfferForm input,
 .OfferForm select {
-  width: 400px;
+  width: 100%;
   outline: 0;
   border-width: 0 0 1px;
   border-color: black;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 input:focus,
@@ -36,11 +48,11 @@ select:focus {
 }
 
 .submit-button {
-  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .OfferForm input[type="submit"] {
-  margin-left: 150px;
   width: 100px;
   height: 35px;
   border: 2px solid black;
@@ -51,6 +63,6 @@ select:focus {
 }
 
 .OfferForm input[type="submit"]:hover {
-  background-color: #867d7d; 
-  color: #fff; 
+  background-color: #867d7d;
+  color: #fff;
 }
