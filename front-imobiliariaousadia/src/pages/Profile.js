@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer/Footer.js';
 import Navbar from '../components/Navbar/Navbar.js';
 import HeaderPage from '../components/HeaderPage/HeaderPage.js';
@@ -6,6 +6,9 @@ import ImgContainer from '../components/ImgContainer/ImgContainer.js';
 import { FaEnvelope, FaPencilAlt, FaPhone } from 'react-icons/fa';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import axios from 'axios';
+
+import {backendUrl} from '../config';
 
 import './Profile.css';
 
@@ -15,8 +18,29 @@ const Profile = ({ UserId }) => {
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [editedEmail, setEditedEmail] = useState('');
   const [editedPhone, setEditedPhone] = useState('');
-  const user = userDetails[UserId];
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    // Retrieve the user ID from local storage
+    const userId = localStorage.getItem('userId');
+
+    // Fetch user data from the backend API using the retrieved user ID
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(backendUrl + `/users/${userId}`);
+        const userData = response.data;
+        userData.image = 'front-imobiliariaousadia\src\assets\Agents\images (2).jpg';
+        setUser(userData);
+        setLoading(false); 
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        setLoading(false); 
+      }
+    };
+
+    fetchUserData();
+  }, []);
   const handleEditClick = () => {
     setShowEditPopup(true);
   };
@@ -30,13 +54,21 @@ const Profile = ({ UserId }) => {
     setShowEditPopup(false);
   };
 
+  if (loading) {
+    return <div>Loading...</div>; // Render a loading state
+  }
+
+  if (!user) {
+    return <div>Error fetching user data.</div>; // Render an error message if user data is not available
+  }
+
   return (
     <div>
       <Navbar />
       <HeaderPage title={'User Profile'} />
       <div className='page-container'>
         <div className='apraisals-container'>
-          <h1>My Apraisals</h1>
+          <h1>My Offers</h1>
           {houseDetails.map((house, index) => (
             <ImgContainer houseDetails={house} key={index} />
           ))}
@@ -52,7 +84,7 @@ const Profile = ({ UserId }) => {
           </p>
           <hr />
           <p>
-            <FaPhone /> {user.telefone}
+            <FaPhone /> {user.phone}
           </p>
           <hr />
           <button className='edit-button' onClick={handleEditClick}>
