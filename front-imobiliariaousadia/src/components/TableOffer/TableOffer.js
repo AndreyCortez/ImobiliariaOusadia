@@ -1,93 +1,106 @@
-import React, { useState } from 'react';
-import { houseStatus } from '../../data';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './TableOffer.css';
 import Popup from 'reactjs-popup';
+import { backendUrl } from '../../config.js';
 import 'reactjs-popup/dist/index.css';
 
 const TableOffer = () => {
-  const [filteredOffers, setFilteredOffers] = useState(houseStatus.filter(offer => offer.status === 'negotiation'));
-  const [acceptedOwner, setAcceptedOwner] = useState('');
-  const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
-  const [rejectedOffer, setRejectedOffer] = useState(null);
-  const [showRejectionPopup, setShowRejectionPopup] = useState(false);
+  const [offers, setOffers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleAcceptOffer = (id, owner) => {
-    console.log(`Accept offer for house ID ${id}`);
-    const offerIndex = houseStatus.findIndex((offer) => offer.id === id && offer.owner === owner);
+  useEffect(() => {
+    fetchOffers();
+  }, []);
 
-    if (offerIndex !== -1) {
-      const { owner: acceptedOwner, price } = houseStatus[offerIndex];
-      const acceptedOffer = { id, status: 'sold', owner: acceptedOwner, price };
-      const updatedHouseStatus = houseStatus.filter((offer) => offer.id !== id);
-      updatedHouseStatus.push(acceptedOffer);
-      setFilteredOffers(updatedHouseStatus.filter(offer => offer.status === 'negotiation'));
-      houseStatus.splice(0, houseStatus.length, ...updatedHouseStatus);
-      console.log('Updated house status:', houseStatus);
-      setAcceptedOwner(acceptedOwner);
-      setShowConfirmationPopup(true);
-    }
+  const fetchOffers = () => {
+    axios
+      .get(backendUrl + '/offer/pending')
+      .then((response) => {
+        setOffers(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching offers:', error);
+      });
   };
 
-  const handleRejectOffer = (id, owner) => {
-    console.log(`Reject offer for house ID ${id}`);
-    
-    const updatedHouseStatus = houseStatus.filter((offer) => offer.id !== id || offer.owner !== owner);
-    houseStatus.splice(0, houseStatus.length, ...updatedHouseStatus);
-    
-    const updatedFilteredOffers = filteredOffers.filter((offer) => offer.id !== id || offer.owner !== owner);
-    setFilteredOffers(updatedFilteredOffers);
-  
-    const rejectedOffer = filteredOffers.find((offer) => offer.id === id && offer.owner === owner);
-    setRejectedOffer(rejectedOffer);
-    
-    setShowRejectionPopup(true);
+  const handleAcceptOffer = (id, userId) => {
+    console.log(`Accept offer for offer ID ${id}`);
+    axios
+      .put(backendUrl + `/offer/${id}`, { status: 'accepted' })
+      .then(() => {
+        const updatedOffers = offers.map((offer) => {
+          if (offer._id === id && offer.userId === userId) {
+            return { ...offer, status: 'accepted' };
+          }
+          return offer;
+        });
+        setOffers(updatedOffers);
+      })
+      .catch((error) => {
+        console.error('Error accepting offer:', error);
+      });
+  };
+
+  const handleRejectOffer = (id, userId) => {
+    console.log(`Reject offer for offer ID ${id}`);
+    axios
+      .put(backendUrl + `/offer/${id}`, { status: 'rejected' })
+      .then(() => {
+        const updatedOffers = offers.map((offer) => {
+          if (offer._id === id && offer.userId === userId) {
+            return { ...offer, status: 'rejected' };
+          }
+          return offer;
+        });
+        setOffers(updatedOffers);
+      })
+      .catch((error) => {
+        console.error('Error rejecting offer:', error);
+      });
   };
 
   return (
     <div>
-      <table className="offer-table">
-        <thead>
-          <tr>
-            <th>CPF</th>
-            <th>House ID</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredOffers.map((offer) => (
-            <tr key={offer.id}>
-              <td>{offer.owner}</td>
-              <td>{offer.id}</td>
-              <td>{offer.price}</td>
-              <td>
-                <button onClick={() => handleAcceptOffer(offer.id, offer.owner)}>Accept</button>
-                <button onClick={() => handleRejectOffer(offer.id, offer.owner)}>Reject</button>
-              </td>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <table className="offer-table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>House ID</th>
+              <th>Price</th>
+              <th>Payment Method</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <Popup
-        position="right center"
-        open={showConfirmationPopup}
-        onClose={() => setShowConfirmationPopup(false)}
-      >
-        <div>Buyer with CPF {acceptedOwner} has acquired the house. Status: sold.</div>
-      </Popup>
-
-      <Popup
-        position="right center"
-        open={showRejectionPopup}
-        onClose={() => setShowRejectionPopup(false)}
-      >
-        {rejectedOffer && (
-          <div>Offer for house ID {rejectedOffer.id} with owner CPF {rejectedOffer.owner} has been rejected.</div>
-        )}
-      </Popup>
+          </thead>
+          <tbody>
+            {offers.length === 0 ? (
+              <tr>
+                <td colSpan="5">There are no pending offers.</td>
+              </tr>
+            ) : (
+              offers.map((offer) => (
+                <tr key={offer._id}>
+                  <td>{offer.userId}</td>
+                  <td>{offer.houseId}</td>
+                  <td>{offer.value}</td>
+                  <td>{offer.paymentMethod}</td>
+                  <td>
+                    <button onClick={() => handleAcceptOffer(offer._id, offer.userId)}>Accept</button>
+                    <button onClick={() => handleRejectOffer(offer._id, offer.userId)}>Reject</button>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
 
 export default TableOffer;
+
