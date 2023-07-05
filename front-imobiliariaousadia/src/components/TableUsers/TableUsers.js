@@ -3,6 +3,8 @@ import axios from 'axios';
 import './TableUsers.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { backendUrl } from '../../config.js';
+
 
 const TableUsers = ({ data }) => {
   const [selectedUser, setSelectedUser] = useState(null);
@@ -11,45 +13,40 @@ const TableUsers = ({ data }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const handleEdit = (id) => {
-    const user = data.find(item => item.id === id);
+    const user = data.find(item => item._id === id);
     setSelectedUser(user);
     setEditedUser({ ...user });
     setShowEditPopup(true);
   };
 
   const handleDelete = (id) => {
-    const user = data.find(item => item.id === id);
+    const user = data.find(item => item._id === id);
     setSelectedUser(user);
     setShowDeletePopup(true);
   };
 
   const handleEditSubmit = () => {
-    // Simulando uma requisição para atualizar o usuário
+    // Simulating a request to update the user
     axios
-      .put(`/users/${selectedUser.id}`, editedUser)
+      .put(`${backendUrl}/users/${selectedUser._id}`, editedUser)
       .then(response => {
-        console.log('Usuário atualizado:', response.data);
+        console.log('Updated user:', response.data);
         setSelectedUser(null);
         setEditedUser(null);
         setShowEditPopup(false);
-        // Atualizar a lista de usuários após a edição
-        // ...
       })
       .catch(error => {
-        console.error('Erro ao atualizar usuário:', error);
+        console.error('Error updating user:', error);
       });
   };
-
+  
   const handleDeleteConfirm = () => {
-    // Simulando uma requisição para excluir o usuário
     axios
-      .delete(`/users/${selectedUser.id}`)
+      .delete(`${backendUrl}/users/${selectedUser._id}`)
       .then(response => {
         console.log('Usuário excluído:', selectedUser);
         setSelectedUser(null);
         setShowDeletePopup(false);
-        // Atualizar a lista de usuários após a exclusão
-        // ...
       })
       .catch(error => {
         console.error('Erro ao excluir usuário:', error);
@@ -71,7 +68,7 @@ const TableUsers = ({ data }) => {
         <tbody>
           {data.map((item, index) => (
             <tr
-              key={item.id}
+              key={item._id}
               className={index % 2 === 0 ? 'highlighted-row' : ''}
             >
               <td>{item.name}</td>
@@ -79,8 +76,8 @@ const TableUsers = ({ data }) => {
               <td>{item.cpf}</td>
               <td>{item.phone}</td>
               <td>
-                <button onClick={() => handleEdit(item.id)}>Edit</button>
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
+                <button onClick={() => handleEdit(item._id)}>Edit</button>
+                <button onClick={() => handleDelete(item._id)}>Delete</button>
               </td>
             </tr>
           ))}
@@ -111,16 +108,6 @@ const TableUsers = ({ data }) => {
                     value={editedUser.email}
                     onChange={(e) =>
                       setEditedUser({ ...editedUser, email: e.target.value })
-                    }
-                  />
-                </div>
-                <div className="form-group">
-                  <label>CPF</label>
-                  <input
-                    type="text"
-                    value={editedUser.cpf}
-                    onChange={(e) =>
-                      setEditedUser({ ...editedUser, cpf: e.target.value })
                     }
                   />
                 </div>
