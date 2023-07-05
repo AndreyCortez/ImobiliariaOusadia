@@ -23,14 +23,29 @@ const AgentPage = () => {
     axios
       .get(`${backendUrl}/users/${id}`)
       .then(response => {
-        console.log(response.data);
+        
         setAgent(response.data);
 
         // Comparar o CPF do corretor com renterCPF nas casas
         axios
-          .get(`${backendUrl}/houses?renterCPF=${response.data.cpf}`)
+          .get(`${backendUrl}/soldhouse/agents/${id}`)
           .then(response => {
-            setHouseDetails(response.data);
+            
+            const soldHouseIds = response.data.map(house => house.houseId);
+            console.log(soldHouseIds)
+
+            // Buscar as informações completas das casas com base nos IDs obtidos
+            axios
+              .get(`${backendUrl}/houses`)
+              .then(response => {
+                
+                const filteredHouses = response.data.filter(house => soldHouseIds.includes(house._id));
+                setHouseDetails(filteredHouses);
+                console.log(filteredHouses);
+              })
+              .catch(error => {
+                console.error(error);
+              });
           })
           .catch(error => {
             console.error(error);
@@ -64,7 +79,7 @@ const AgentPage = () => {
             <FaEnvelope /> {agent.email}
           </div>
           <div>
-            <FaPhone /> {agent.telefone}
+            <FaPhone /> {agent.phone}
           </div>
 
           <h4>Specialty suburbs</h4>
