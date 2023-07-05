@@ -1,16 +1,12 @@
 const SoldHouse = require('../models/soldHouseModel');
 
-
-//todo: create soldhouses by realtorId
-
-
 // Create a new sold house
 async function createSoldHouse(req, res) {
   try {
-    const { realtorCPF, houseId } = req.body;
+    const { realtorId, clientId, houseId } = req.body;
 
     // Create a new instance of SoldHouse model
-    const soldHouse = new SoldHouse({ realtorCPF, houseId });
+    const soldHouse = new SoldHouse({ realtorId, clientId, houseId });
 
     // Save the sold house to the database
     const savedSoldHouse = await soldHouse.save();
@@ -50,8 +46,26 @@ async function getSoldHouseById(req, res) {
   }
 }
 
+// Get sold houses by realtorId
+async function getSoldHousesByRealtorId(req, res) {
+  try {
+    const { realtorId } = req.params;
+    const soldHouses = await SoldHouse.find({ realtorId });
+
+    if (soldHouses.length === 0) {
+      return res.status(404).json({ error: 'No sold houses found for the specified realtor ID' });
+    }
+
+    res.json(soldHouses);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to retrieve sold houses by realtor ID' });
+  }
+}
+
 module.exports = {
   createSoldHouse,
   getSoldHouses,
   getSoldHouseById,
+  getSoldHousesByRealtorId,
 };

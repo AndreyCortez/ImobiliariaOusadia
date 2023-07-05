@@ -13,18 +13,23 @@ const offerSchema = new mongoose.Schema({
   paymentMethod: {
     type: String,
     required: true,
-  }, 
+  },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'House',
+    ref: 'User',
     required: true,
   },
   status: {
     type: String,
-    required: true,
+    enum: ['pending', 'accepted', 'rejected'],
+    default: 'pending',
+  },
+  realtorId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
   }
 });
 
-const offer = mongoose.model('offer', offerSchema);
+const Offer = mongoose.model('Offer', offerSchema);
 
-module.exports = offer;
+module.exports = Offer;
