@@ -1,24 +1,22 @@
-const offer = require('../models/offerModel');
+const Offer = require('../models/offerModel');
 
-// getOfferByUsers
-// getAllOfferPendents
-
-
-// Execute a offer
-const executeoffer = async (req, res) => {
+// Execute an offer
+const executeOffer = async (req, res) => {
   try {
-    const { houseId, value, paymentMethod } = req.body;
+    const { houseId, value, paymentMethod, userId } = req.body;
     // Create a new offer
-    const offer = new offer({
+    const newOffer = new Offer({
       houseId,
       value,
-      paymentMethod
+      paymentMethod,
+      userId,
+      status: 'pending', // Set the status to 'pending' by default
     });
 
     // Save the offer to the database
-    await offer.save();
+    await newOffer.save();
 
-    return res.status(201).json(offer);
+    return res.status(201).json(newOffer);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: 'Internal server error' });
@@ -26,11 +24,11 @@ const executeoffer = async (req, res) => {
 };
 
 // Retrieve offers by houseId
-const getoffersByHouseId = async (req, res) => {
+const getOffersByHouseId = async (req, res) => {
   const { houseId } = req.params;
 
   try {
-    const offers = await offer.find({ houseId });
+    const offers = await Offer.find({ houseId });
 
     if (offers.length === 0) {
       return res.status(404).json({ error: 'No offers found for the specified house ID.' });
@@ -43,11 +41,28 @@ const getoffersByHouseId = async (req, res) => {
   }
 };
 
+// Retrieve offers by userId
+const getOffersByUser = async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const offers = await Offer.find({ userId });
+
+    if (offers.length === 0) {
+      return res.status(404).json({ error: 'No offers found for the specified user ID.' });
+    }
+
+    res.status(200).json(offers);
+  } catch (error) {
+    console.error('Error retrieving offers:', error);
+    res.status(500).json({ error: 'An error occurred while retrieving offers.' });
+  }
+};
 
 // Get all offers
-const getAlloffers = async (req, res) => {
+const getAllOffers = async (req, res) => {
   try {
-    const offers = await offer.find();
+    const offers = await Offer.find();
     res.json(offers);
   } catch (error) {
     console.error(error);
@@ -55,8 +70,41 @@ const getAlloffers = async (req, res) => {
   }
 };
 
+// Get all pending offers
+const getAllOffersPending = async (req, res) => {
+  try {
+    const pendingOffers = await Offer.find({ status: 'pending' });
+    res.json(pendingOffers);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+// Update offer status
+const updateOffer = async (req, res) => {
+  const { offerId } = req.params;
+  const { status } = req.body;
+
+  try {
+    const updatedOffer = await Offer.findByIdAndUpdate(offerId, { status }, { new: true });
+
+    if (!updatedOffer) {
+      return res.status(404).json({ error: 'Offer not found' });
+    }
+
+    res.status(200).json(updatedOffer);
+  } catch (error) {
+    console.error('Error updating offer:', error);
+    res.status(500).json({ error: 'Failed to update offer' });
+  }
+};
+
 module.exports = {
-  executeoffer,
-  getoffersByHouseId,
-  getAlloffers
+  executeOffer,
+  getOffersByHouseId,
+  getOffersByUser,
+  getAllOffers,
+  getAllOffersPending,
+  updateOffer,
 };
