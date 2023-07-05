@@ -1,5 +1,9 @@
 const SoldHouse = require('../models/soldHouseModel');
 
+
+//todo: create soldhouses by realtorId
+
+
 // Create a new sold house
 async function createSoldHouse(req, res) {
   try {

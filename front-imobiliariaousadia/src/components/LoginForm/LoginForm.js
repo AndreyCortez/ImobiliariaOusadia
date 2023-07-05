@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import Button from '../Button/Button';
 import './LoginForm.css';
 import { Link , useNavigate} from 'react-router-dom';
-import { users } from '../../data';
+import {backendUrl} from '../../config';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import axios from 'axios';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -20,7 +21,7 @@ const LoginForm = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+ /* const handleSubmit = (event) => {
     event.preventDefault();
 
     // Verifica se existe um usuário com o e-mail e senha fornecidos
@@ -35,12 +36,38 @@ const LoginForm = () => {
       }
       
     } else {
+      console.error('Error logging in:', error);
       setShowErrorPopup(true);
       console.log('E-mail ou senha inválidos'); 
     }
-  };
+  }; */
 
-  return (
+  // Assuming you receive the JWT in the login response
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  try {
+    const response = await axios.post(backendUrl + '/auth/login', { email, password });
+    const { token, userId, isAdmin } = response.data;
+
+    // Store the JWT in localStorage
+    localStorage.setItem('jwt', token);
+    localStorage.setItem('userId', userId);
+    localStorage.setItem('isAdmin', isAdmin);
+
+    if(isAdmin){
+      navigate('/adminpage');
+    } else {
+      navigate('/profile');
+    }
+  } catch (error) {
+    setShowErrorPopup(true);
+    console.log('E-mail ou senha inválidos'); 
+  }
+};
+
+
+
+return (
     <div>
           <div className="LoginForm">
           <h2>Login</h2>
