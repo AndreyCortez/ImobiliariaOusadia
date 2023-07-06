@@ -1,5 +1,23 @@
 const Offer = require('../models/offerModel');
 const SoldHouse = require('../models/soldHouseModel');
+const House = require('../models/houseModel');
+
+const getUserOffersWithHouseDetails = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    console.log( userId);
+
+    // Fetch offers by userId and populate house details
+    const offers = await Offer.find({ userId }).populate('houseId');
+
+    res.json(offers);
+  } catch (error) {
+    console.error('Error fetching user offers:', error);
+    res.status(500).json({ error: 'Failed to retrieve user offers' });
+  }
+};
+
 
 // Execute an offer
 const executeOffer = async (req, res) => {
@@ -125,4 +143,5 @@ module.exports = {
   getAllOffers,
   getAllOffersPending,
   updateOffer,
+  getUserOffersWithHouseDetails
 };

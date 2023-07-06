@@ -19,6 +19,7 @@ const Profile = ({ UserId }) => {
   const [editedEmail, setEditedEmail] = useState('');
   const [editedPhone, setEditedPhone] = useState('');
   const [user, setUser] = useState(null);
+  const [house, setHouse] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,11 +31,18 @@ const Profile = ({ UserId }) => {
       try {
         const response = await axios.get(backendUrl + `/users/${userId}`);
         const userData = response.data;
-        userData.image = 'front-imobiliariaousadia\src\assets\Agents\images (2).jpg';
         setUser(userData);
+
+        const offerResponse = await axios.get(backendUrl + `/offer/houses/user/${userId}`);
+        const offerDetails = offerResponse.data;
+
+        const houses = offerDetails.filter((offer) => offer.houseId !== null).map((offer) => offer.houseId);
+        console.log(houses);
+
+        setHouse(houses);
         setLoading(false); 
       } catch (error) {
-        console.error('Error fetching user data:', error);
+        console.error('Error fetching user or offer data:', error);
         setLoading(false); 
       }
     };
@@ -69,7 +77,7 @@ const Profile = ({ UserId }) => {
       <div className='page-container'>
         <div className='apraisals-container'>
           <h1>My Offers</h1>
-          {houseDetails.map((house, index) => (
+          {house.map((house, index) => (
             <ImgContainer houseDetails={house} key={index} />
           ))}
         </div>
