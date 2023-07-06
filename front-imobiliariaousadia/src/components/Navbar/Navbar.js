@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import companyLogo from '../../images/CompanyLogo.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const isAdmin = localStorage.getItem('isAdmin');
+  const isAuthenticated = localStorage.getItem('jwt');
+  const userId = localStorage.getItem('userId');
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+  };
+
+  const handleLogout = () => {
+    // Clear local storage
+    localStorage.removeItem('isAdmin');
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('userId');
+
+    // Navigate to the login page
+    navigate('/signin');
   };
 
   return (
@@ -26,7 +40,19 @@ const Navbar = () => {
         <li><NavLink to="/aboutus">About Us</NavLink></li>
         <li><NavLink to="/buy">Buy</NavLink></li>
         <li><NavLink to="/agents">Agents</NavLink></li>
-        <li><NavLink to="/signin">Sign In</NavLink></li>
+
+        {isAuthenticated ? (
+          <>
+            {isAdmin ? (
+              <li><NavLink to="/adminpage">Profile</NavLink></li>
+            ) : (
+              <li><NavLink to={`/profile`}>Profile</NavLink></li>
+            )}
+            <li><button className="logout-button" onClick={handleLogout}>Logout</button></li>
+          </>
+        ) : (
+          <li><NavLink to="/signin">Sign In</NavLink></li>
+        )}
       </ul>
     </nav>
   );

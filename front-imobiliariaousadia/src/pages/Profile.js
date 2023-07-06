@@ -12,8 +12,6 @@ import {backendUrl} from '../config';
 
 import './Profile.css';
 
-import { houseDetails, userDetails } from '../data.js';
-
 const Profile = ({ UserId }) => {
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [editedEmail, setEditedEmail] = useState('');
