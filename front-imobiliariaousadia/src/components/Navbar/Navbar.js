@@ -43,7 +43,7 @@ const Navbar = () => {
 
         {isAuthenticated ? (
           <>
-            {isAdmin ? (
+            {isAdmin === true ? (
               <li><NavLink to="/adminpage">Profile</NavLink></li>
             ) : (
               <li><NavLink to={`/profile`}>Profile</NavLink></li>
