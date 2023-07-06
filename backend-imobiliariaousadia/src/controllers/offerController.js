@@ -6,8 +6,6 @@ const getUserOffersWithHouseDetails = async (req, res) => {
   try {
     const { userId } = req.params;
 
-    console.log( userId);
-
     // Fetch offers by userId and populate house details
     const offers = await Offer.find({ userId }).populate('houseId');
 

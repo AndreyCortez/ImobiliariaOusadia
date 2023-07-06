@@ -8,7 +8,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import axios from 'axios';
 
-import {backendUrl} from '../config';
+import {backendUrl, imagesUrl} from '../config';
 
 import './Profile.css';
 
@@ -16,6 +16,7 @@ const Profile = ({ UserId }) => {
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [editedEmail, setEditedEmail] = useState('');
   const [editedPhone, setEditedPhone] = useState('');
+  const [profileImage, setProfileImage] = useState(null);
   const [user, setUser] = useState(null);
   const [house, setHouse] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -51,15 +52,53 @@ const Profile = ({ UserId }) => {
     setShowEditPopup(true);
   };
 
-  const handleEditFormSubmit = (event) => {
+  const handleEditFormSubmit = async (event) => {
+     // nessa função que lidamos com envio de imagens pro backend para ver como acessa só olhar o atributo src do profile
     event.preventDefault();
-    // Lógica para processar as informações editadas do usuário
-    // ...
-
-    // Fechar o popup após o processamento dos dados
-    setShowEditPopup(false);
+    // Retrieve the user ID from local storage
+    const userId = localStorage.getItem('userId');
+  
+    try {
+      // Check if any of the fields have changed and need to be updated
+      const hasChanges = editedEmail || editedPhone || profileImage;
+  
+      if (hasChanges) {
+        // Create a new FormData object to send the form data including the image
+        const formData = new FormData();
+        if (profileImage) {
+          formData.append('image', profileImage);
+        }
+  
+        // Send a POST request to the backend to upload the image if profileImage is not null
+        let imageFilename = '';
+        if (profileImage) {
+          const uploadResponse = await axios.post(backendUrl + '/users/upload', formData);
+          imageFilename = uploadResponse.data.filename;
+        }
+  
+        // Update the user data with the new values if they are not null
+        const updatedUserData = {
+          ...user,
+          email: editedEmail || user.email,
+          phone: editedPhone || user.phone,
+          imgProfile: imageFilename || user.imgProfile,
+        };
+  
+        // Send a PUT request to update the user data
+        await axios.put(backendUrl + `/users/${userId}`, updatedUserData);
+      }
+  
+      // Close the popup after processing the data
+      setShowEditPopup(false);
+  
+      // Reload the page
+      window.location.reload();
+    } catch (error) {
+      console.error('Error updating user data:', error);
+    }
   };
-
+  
+  
   if (loading) {
     return <div>Loading...</div>; // Render a loading state
   }
@@ -83,7 +122,8 @@ const Profile = ({ UserId }) => {
         <div className='vline'></div>
 
         <div className='profile-container'>
-          <img className='profile-image' src={user.image} alt='Profile' />
+          {console.log(imagesUrl + user.imgProfile)}
+          <img className='profile-image' src={ backendUrl + "/uploads/" + user.imgProfile} alt='Profile' />
           <h2>{user.name}</h2>
           <p>
             <FaEnvelope /> {user.email}
@@ -125,11 +165,21 @@ const Profile = ({ UserId }) => {
                   onChange={(event) => setEditedPhone(event.target.value)}
                 />
               </div>
+              <div className='form-group'>
+                <label htmlFor='profileImage'>Profile Image:</label>
+                <input
+                  type='file'
+                  id='profileImage'
+                  accept='image/*'
+                  onChange={(event) => setProfileImage(event.target.files[0])}
+                />
+              </div>
               <div className='edit-popup-buttons'>
                 <button type='submit'>Save</button>
                 <button onClick={() => setShowEditPopup(false)}>Cancel</button>
               </div>
             </form>
+
           </div>
         </Popup>
       </div>

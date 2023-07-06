@@ -2,12 +2,19 @@ const express = require('express');
 const cors = require('cors');
 const http = require('http');
 const connectDB = require('./db/db.config');
+const path = require('path');
+
 
 // Connect to MongoDB
 connectDB();
 
 const app = express();
 app.use(express.json()); // Parse JSON data
+
+// Serve the upload directory as static files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.use('/uploads', express.static('.'));
 
 //import routes
 const houseRouter = require('./routers/houseRouter');
