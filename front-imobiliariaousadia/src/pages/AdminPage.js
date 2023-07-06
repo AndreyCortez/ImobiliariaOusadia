@@ -35,6 +35,8 @@ const AdminPage = ({AdminId}) => {
 
         <div className='admin-profile'>
       <img className='admin-image' src={admin.image}/>
+
+      <div className='admin-info'>
       <h2>{admin.name}</h2>
       <hr/>
       <h5> <FaPhone/> {admin.telefone}</h5>
@@ -43,6 +45,8 @@ const AdminPage = ({AdminId}) => {
       <h5><FaEnvelope/> {admin.email}</h5>
       <hr/>
       <button className='edit-button'><FaPencilAlt/> Edit Info </button>
+      
+      </div>
       </div>
       </div>
       <Footer />

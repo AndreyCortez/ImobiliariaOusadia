@@ -1,17 +1,18 @@
 .page-container
 {
     display: flex;
-    height: 741px;
 }
 
 .admin-options
 {
-    padding: 100px;
-    width: 1400px;
+    padding: 40px;   
+    margin: auto;
+    width: 80%;
     text-align: center;
     display: block;
     background-color: rgba(15, 82, 186, 0.2); 
-    margin: 10px;
+    margin-top: 30px;
+    margin-bottom: 80px;
 }
 
 .admin-profile {
@@ -20,6 +21,12 @@
     background-color: rgba(15, 82, 186, 0.5); 
     display: block;
     margin: 10px;
+}
+
+.admin-info
+{
+  margin: 20px;
+  width: 50%;
 }
 
 hr{
@@ -71,7 +78,8 @@ hr{
     margin: 20px;
     padding: 13px ;
     padding-inline: 20px;
-    width: 300px;
+    margin: auto;
+    width: 100%;
   }
   .edit-button:hover {
     background-color:#408c99;
@@ -81,3 +89,42 @@ hr{
     top:1px;
   }
   
+
+  @media (max-width: 1200px) {
+    .page-container {
+      flex-direction: column;
+    }
+  
+    .admin-profile{
+  
+    margin: auto;
+    width: 80%;
+    margin-top: 20px;
+
+    align-items: center;
+    align-content: center;
+      
+    order: -1; /* Place Element 3 at the top */
+    align-self: flex-start; /* Align Element 3 to the start (top) */
+    }
+
+    .admin-profile
+    {
+    display: flex;
+      font-size: auto;
+      padding: 10px;
+  }
+
+  .admin-image
+{
+  margin: auto;
+  width: 250px;
+  height: 250px;
+}
+
+.edit-button{
+
+  font-size: 10px;
+}
+
+}
