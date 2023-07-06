@@ -1,27 +1,25 @@
 
-.LoginForm {
-  width: 600px;
+.LoginForm {  
+  margin: auto;
+  width: 50%;
+  margin-top: 10px;
   height: 400px;
   border: 1px solid #222020c0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-  margin-block: 30px;
-  margin-inline: 270px;
-  position: relative;
-  top: 10px;
-  left: 300px;
+  padding: 90px;
   background-color: #fff;
 }
 
 .LoginForm input,
 .LoginForm select {
-  width: 400px;
+  width: 300px;
   outline: 0;
   border-width: 0 0 1px;
   border-color: black;
+  margin-inline: 20px;
   margin-bottom: 40px;
 }
 
@@ -32,12 +30,9 @@
 }
 
 .LoginForm .submit-button {
-  margin-top: 10px;
 }
 
 .LoginForm input[type="submit"] {
-  margin-left: 160px;
-  width: 100px;
   height: 35px;
   border: 1px solid black;
   background-color: #fff;

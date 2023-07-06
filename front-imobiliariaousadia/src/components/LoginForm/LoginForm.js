@@ -95,9 +95,9 @@ return (
         <div className="submit-button">
         <input type="submit" value="Sign In" />
         </div>
-        <div className='Register'>
+        <div className="submit-button">
           <Link to="/register">
-          <Button name={'Register'}/>
+          <input type="submit" value="Register" />
           </Link>
         </div>
 

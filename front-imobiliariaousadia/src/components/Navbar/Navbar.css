@@ -5,6 +5,7 @@
   padding: 10px;
   background-color: #002366;
   position: relative; /* Adicionado para corrigir o posicionamento */
+  z-index: 2;
 }
 
 .logo {
@@ -55,6 +56,7 @@
 }
 
 .nav-NavLinks.show {
+  width: 95.8%;
   display: flex;
   flex-direction: column;
 }

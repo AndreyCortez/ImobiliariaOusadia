@@ -1,22 +1,22 @@
 .RegistrationForm {
-  width: 600px;
-  height: 750px;
+  margin: auto;
+  width: 50%;
   border: 1px solid #222020c0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 60px;
-  margin: 30px;
-  position: relative;
-  top: 10px;
-  left: 250px;
+  margin-top: 30px;
+  margin-bottom: 120px;
   background-color:#fff;
 }
 
+
+
 .RegistrationForm input,
 .RegistrationForm select {
-  width: 400px;
+  width: 300px;
   outline: 0;
   border-width: 0 0 1px;
   border-color: black;
@@ -30,12 +30,11 @@
 }
 
 .RegistrationForm .submit-button {
-  margin-top: 10px;
+
 }
 
 .RegistrationForm input[type="submit"] {
-  margin-left: 160px;
-  width: 100px;
+
   height: 35px;
   border: 1px solid black;
   background-color: #fff;
@@ -50,7 +49,5 @@
 }
 
 .RegistrationForm .SignIn {
-  margin-left: 105px;
-  margin-bottom: 20px;
   padding: 10px 20px;
 }

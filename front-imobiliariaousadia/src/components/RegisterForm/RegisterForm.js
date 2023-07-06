@@ -175,10 +175,11 @@ const RegistrationForm = () => {
         <div className="submit-button">
           <input type="submit" value="Register" />
         </div>
-        <div className='SignIn'>
-          <Link to="/signin">
-            <Button name={'Sign In'}/>
-          </Link>
+
+        <div className="submit-button">
+        <Link to="/signin">
+          <input type="submit" value="Sign In" />
+        </Link>
         </div>
       </form>
       <Popup open={showPopup} onClose={() => setShowPopup(false)}>
