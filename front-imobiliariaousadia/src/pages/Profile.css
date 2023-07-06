@@ -13,9 +13,11 @@
   display: block;
   padding-top: 50px;
   padding-inline: 100px;
+  text-align: center;
 }
 
 .profile-container p {
+  
   text-align: center;
   align-items: center;
   align-content: center;
@@ -23,6 +25,7 @@
 }
 
 .profile-image {
+  display: flex;
   margin-left: 50px;
   width: 200px;
   height: 200px;
@@ -47,7 +50,8 @@
   margin: 20px;
   padding: 13px;
   padding-inline: 20px;
-  width: 300px;
+  margin: auto;
+  width: 50%;
 }
 
 .edit-button:hover {
@@ -105,3 +109,32 @@
   justify-content: space-around;
   margin-top: 20px;
 }
+
+
+@media (max-width: 1200px) {
+  .page-container {
+    flex-direction: column;
+  }
+
+  .profile-container{
+
+  margin: auto;
+  width: 50%;
+    
+  order: -1; /* Place Element 3 at the top */
+  align-self: flex-start; /* Align Element 3 to the start (top) */
+  }
+
+  .apraisals-container
+  {
+    margin: auto;
+    width: 50%;
+
+    margin-bottom: 120px;
+  }
+
+  .vline{
+    display: none;
+  }
+}
+
