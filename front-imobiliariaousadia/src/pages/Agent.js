@@ -65,7 +65,7 @@ const AgentPage = () => {
       <Navbar />
 
       <div className='agent-123-container'>
-        <img className='agent-image' src={agent.image} alt="Agent" />
+        <img className='agent-image' src={backendUrl + "/uploads/" + agent.imgProfile} alt="Agent" />
         <div className='agent-data'>
           <h1>{agent.name}</h1>
           <h4>Principal, Belle Property, Queanbay</h4>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './AgentContainer.css';
 import { Link } from 'react-router-dom';  
-
+import { backendUrl } from '../../config';
 import { FaPhone, FaEnvelope } from 'react-icons/fa';
 const AgentContainer = ({ agent}) => {
 
@@ -10,7 +10,7 @@ const AgentContainer = ({ agent}) => {
     <Link to={`/agent/${agent._id}`}>
     <div className="agent-container">
  
-      <img className="agent-image" src={agent.image} alt="Agent" />
+      <img className="agent-image" src={backendUrl + "/uploads/" +agent.imgProfile} alt="Agent" />
       <div className='agent-address'>
         <h2>{agent.name}</h2>
       </div>
