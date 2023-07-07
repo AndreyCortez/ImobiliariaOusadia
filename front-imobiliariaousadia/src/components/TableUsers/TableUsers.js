@@ -38,6 +38,7 @@ const TableUsers = ({ data }) => {
       .catch(error => {
         console.error('Error updating user:', error);
       });
+      window.location.reload();
   };
   
   const handleDeleteConfirm = () => {
@@ -51,6 +52,7 @@ const TableUsers = ({ data }) => {
       .catch(error => {
         console.error('Erro ao excluir usuário:', error);
       });
+      window.location.reload();
   };
 
   return (

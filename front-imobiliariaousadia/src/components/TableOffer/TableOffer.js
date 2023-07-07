@@ -41,6 +41,7 @@ const TableOffer = () => {
       .catch((error) => {
         console.error('Error accepting offer:', error);
       });
+      window.location.reload();
   };
 
   const handleRejectOffer = (id, userId) => {
@@ -59,6 +60,7 @@ const TableOffer = () => {
       .catch((error) => {
         console.error('Error rejecting offer:', error);
       });
+      window.location.reload();
   };
 
   return (
