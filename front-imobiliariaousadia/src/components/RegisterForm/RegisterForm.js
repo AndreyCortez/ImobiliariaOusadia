@@ -7,7 +7,7 @@ import 'reactjs-popup/dist/index.css';
 import axios from 'axios';
 
 import { backendUrl } from '../../config';
-import { validateFullName, validateEmailVerification, validatePasswordVerification, validateEmail, validatePassword, validateCpf, validatePhone } from '../../validationUtils';
+import { validateCpf, validatePhone } from '../../validationUtils';
 
 const RegistrationForm = () => {
   const [fullName, setFullName] = useState('');

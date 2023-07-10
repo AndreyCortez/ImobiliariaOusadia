@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer/Footer.js';
 import Navbar from '../components/Navbar/Navbar.js';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import './AdminPage.css';
 import { FaEnvelope, FaPencilAlt, FaPhone } from 'react-icons/fa';
 import axios from 'axios';
@@ -31,6 +31,8 @@ const AdminPage = () => {
 
   if (!admin) {
     return <div>Loading...</div>; // Render a loading state
+  } else if (!admin.isAdmin) {
+    return <Navigate to="/profile" />; // Redirect to the login page if not an admin
   }
 
   return (

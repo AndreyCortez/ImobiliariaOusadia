@@ -20,9 +20,13 @@ const login = async (req, res) => {
     if (!isPasswordValid) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
-
+    const payload = {
+      id: user.id,
+      email: user.email,
+      isAdmin: user.isAdmin, // Assuming you have an `isAdmin` property in your user model
+    };
     // Generate a JWT token
-    const token = jwt.sign({ userId: user._id }, config.jwtSecret, { expiresIn: config.jwtExpiresIn });
+    const token = jwt.sign(payload, config.jwtSecret, { expiresIn: config.jwtExpiresIn });
     const userId = user._id;
     const isAdmin = user.isAdmin;
     // Return the token in the response

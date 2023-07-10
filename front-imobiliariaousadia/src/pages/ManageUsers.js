@@ -13,7 +13,7 @@ const ManageUsers = ({ type }) => {
   const [showModal, setShowModal] = useState(false);
   const [usersData, setUsersData] = useState([]);
   const [searchText, setSearchText] = useState("");
-
+  
   useEffect(() => {
     axios
       .get(`${backendUrl}/users/role/${type}`)
