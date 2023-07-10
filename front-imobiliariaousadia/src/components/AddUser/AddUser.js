@@ -49,6 +49,8 @@ const AddUser = ({ userType }) => {
 
       console.log('User added successfully:', response.data);
 
+      window.location.reload();
+
       // Clear the form fields
       setName('');
       setEmail('');
@@ -84,13 +86,11 @@ const AddUser = ({ userType }) => {
           <br />
           <input type="text" id="cpf" value={cpf} onChange={handleCpfChange} />
         </div>
-        {userType === 'admin' && (
           <div>
             <label htmlFor="phone">Phone:</label>
             <br />
             <input type="text" id="phone" value={phone} onChange={handlePhoneChange} />
           </div>
-        )}
         <div className="submit-button">
           <input type="submit" value="Add User" />
         </div>

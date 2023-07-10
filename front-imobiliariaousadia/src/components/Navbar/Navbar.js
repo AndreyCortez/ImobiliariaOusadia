@@ -41,10 +41,13 @@ const Navbar = () => {
         <li><NavLink to="/buy">Buy</NavLink></li>
         <li><NavLink to="/agents">Agents</NavLink></li>
 
+        {console.log(isAdmin)}
         {isAuthenticated ? (
           <>
-            {isAdmin === true ? (
+            
+            {(isAdmin === 'true') ? (
               <li><NavLink to="/adminpage">Profile</NavLink></li>
+              
             ) : (
               <li><NavLink to={`/profile`}>Profile</NavLink></li>
             )}

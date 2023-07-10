@@ -11,7 +11,7 @@ const HomePage = () => {
       <Navbar />
       <div className="background-container">
         <SearchHouses />
-      </div>;
+      </div>
       <Highlights />
       <Footer />
     </>

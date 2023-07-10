@@ -92,6 +92,8 @@ const AddProperty = () => {
 
         // Handle the response
         console.log('Property added successfully:', response.data);
+        
+        window.location.reload();
 
         // Clear the form fields
         setAddress('');
