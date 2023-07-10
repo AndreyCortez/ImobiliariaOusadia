@@ -72,6 +72,7 @@ const RegistrationForm = () => {
           cpf,
           phone,
           password,
+          imgProfile: "default_user.avif",
           isAdmin: false, // Assuming isAdmin is set to false for regular users
         });
     
