@@ -12,6 +12,8 @@ const TableProperties = () => {
   const [editedHouse, setEditedHouse] = useState(null);
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [mainImage, setMainImage] = useState(null);
+  const [otherImages, setOtherImages] = useState([]);
 
   useEffect(() => {
     axios
@@ -23,6 +25,15 @@ const TableProperties = () => {
         console.error(error);
       });
   }, []);
+
+    const handleMainImageChange = (e) => {
+      setMainImage(e.target.files[0]);
+    };
+
+    const handleOtherImagesChange = (e) => {
+      const filesArray = Array.from(e.target.files);
+      setOtherImages(filesArray);
+    };
 
   const handleEdit = (id) => {
     const house = houses.find(item => item._id === id);
@@ -42,21 +53,62 @@ const TableProperties = () => {
     setShowDeletePopup(true);
   };
 
-  const handleEditSubmit = () => {
-    axios
-      .put(`${backendUrl}/houses/${selectedHouse._id}`, editedHouse)
-      .then(response => {
-        console.log('Casa atualizada:', response.data);
-        setSelectedHouse(null);
-        setEditedHouse(null);
-        setShowEditPopup(false);
-        // Atualizar a lista de casas após a edição
-        setHouses(houses.map(item => item._id === response.data._id ? response.data : item));
-      })
-      .catch(error => {
-        console.error('Erro ao atualizar casa:', error);
-      });
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      console.log('Starting handleEditSubmit');
+  
+      let mainImageFilename = editedHouse.mainImage || null;
+      let otherImagesFilenames = editedHouse.otherImages || [];
+  
+      // Upload main image if a new one is selected
+      if (mainImage) {
+        console.log('Uploading main image');
+        const mainImageFormData = new FormData();
+        mainImageFormData.append('image', mainImage);
+        const mainImageResponse = await axios.post(`${backendUrl}/users/upload`, mainImageFormData);
+        mainImageFilename = mainImageResponse.data.filename;
+        console.log('Main image uploaded:', mainImageFilename);
+      }
+  
+      // Upload other images if new ones are selected
+      if (otherImages.length > 0) {
+        otherImagesFilenames = [];
+        console.log('Uploading other images');
+        for (let i = 0; i < otherImages.length; i++) {
+          const image = otherImages[i];
+          const imageFormData = new FormData();
+          imageFormData.append(`image`, image);
+          const imageResponse = await axios.post(`${backendUrl}/users/upload`, imageFormData);
+          const imageFilename = imageResponse.data.filename;
+          otherImagesFilenames.push(imageFilename);
+          console.log(`Uploaded image ${i + 1}: ${imageFilename}`);
+        }
+      }
+  
+      // Create the updated house object with the uploaded filenames
+      const updatedHouse = {
+        ...editedHouse,
+        mainImage: mainImageFilename,
+        otherImages: otherImagesFilenames,
+      };
+  
+      // Update the house using PUT request
+      const response = await axios.put(`${backendUrl}/houses/${selectedHouse._id}`, updatedHouse);
+  
+      console.log('Casa atualizada:', response.data);
+      setSelectedHouse(null);
+      setEditedHouse(null);
+      setShowEditPopup(false);
+      setHouses(houses.map((item) => (item._id === response.data._id ? response.data : item)));
+      window.location.reload();
+    } catch (error) {
+      console.error('Erro ao atualizar casa:', error);
+    }
   };
+  
+  
 
   const handleDeleteConfirm = () => {
     axios
@@ -208,7 +260,26 @@ const TableProperties = () => {
                     }
                   />
                 </div>
-                <button onClick={handleEditSubmit}>Save</button>
+
+                <div className="form-group">
+                  <label>Main Image</label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleMainImageChange}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label>Other Images</label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={handleOtherImagesChange}
+                  />
+                </div>
+                <button onClick={(e) => handleEditSubmit(e)}>Save</button>
               </form>
             )}
           </div>

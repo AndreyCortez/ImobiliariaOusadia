@@ -1,8 +1,7 @@
 import React from 'react';
 import './ImgContainer.css';
 import { Link } from 'react-router-dom';
-
-
+import { backendUrl } from '../../config';
 import { FaBed, FaBath } from 'react-icons/fa';
 import {AiFillCar} from 'react-icons/ai';
 
@@ -10,7 +9,7 @@ const ImgContainer = ({ houseDetails }) => {
   return (
     <Link to={`/house/${houseDetails._id}`}>
     <div className="house-container">
-    <img className="house-image" src={houseDetails.image} alt="House" />
+    <img className="house-image" src={backendUrl + "/uploads/" + houseDetails.mainImage} alt="House" />
       <div className='house-address'>
         <h2>{houseDetails.city}</h2>
         <p>{houseDetails.address}</p>

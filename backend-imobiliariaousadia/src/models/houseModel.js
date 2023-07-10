@@ -48,6 +48,14 @@ const houseSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  mainImage: {
+    type: String,
+    required: false  // Not required
+  },
+  otherImages: {
+    type: [String],
+    required: false  // Not required
+  }
 });
 
 // Create the house model
