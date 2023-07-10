@@ -89,51 +89,77 @@ gh repo clone AndreyCortez/ImobiliariaOusadia
 cd ImobiliariaOusadia/front-imobiliariaousadia
 ```
 
-3. Instale as dependências do projeto utilizando o npm (Node Package Manager):
+3. Instale as dependências do projeto tanto para o frontend quanto para o backend utilizando o npm (Node Package Manager):
 ```
+cd front-imobiliariaousadia
+npm install
+
+cd ../backend-imobiliariaousadia
 npm install
 ```
-
-4. Inicie o servidor de desenvolvimento:
+4. Inicie o servidor do backend:
 ```
+npm run dev
+```
+
+5. Inicie o servidor de desenvolvimento do frontend:
+```
+cd ../front-imobiliariaousadia
 npm start
 ```
-Isso irá iniciar o servidor de desenvolvimento e abrirá automaticamente o aplicativo em seu navegador padrão. Agora você poderá visualizar e interagir com o projeto.
 
-O código-fonte do projeto está localizado na pasta src, onde você encontrará as páginas, componentes, imagens e serviços utilizados para desenvolver o site.
+Isso irá iniciar o servidor de desenvolvimento do frontend e abrirá automaticamente o aplicativo em seu navegador padrão. Agora você poderá visualizar e interagir com o projeto.
+
+O código-fonte do projeto está localizado nas pastas front-imobiliariaousadia e back-imobiliariaousadia, onde você encontrará os arquivos do frontend e do backend, respectivamente.
 
 Certifique-se de ter o Node.js e o npm instalados em seu sistema antes de executar esses comandos.
 
 ## Comentários sobre o código
-O projeto utiliza a biblioteca React para desenvolver a interface do usuário, seguindo uma abordagem de componentização. Cada página do aplicativo é tratada como um componente dentro de um "app", e componentes internos são utilizados para facilitar a reutilização em outras páginas. Isso resulta em um código mais organizado, legível e reciclável, além de proporcionar escalabilidade ao projeto.
+O projeto utiliza a biblioteca React para desenvolver a interface do usuário e o Node.js para o desenvolvimento do backend. A abordagem de componentização do frontend permite a reutilização de componentes em diferentes partes do site, facilitando a manutenção e adição de novas funcionalidades. O backend utiliza o Express.js para criar as rotas e lidar com as requisições do cliente.
 
-A abordagem de componentização adotada no projeto permite a criação de componentes reutilizáveis, facilitando a manutenção e adição de novas funcionalidades. A separação da lógica e da apresentação em componentes distintos traz benefícios como modularidade, testabilidade e escalabilidade do código.
+O código do frontend está localizado na pasta front-imobiliariaousadia/src, onde você encontrará as páginas, componentes, imagens e serviços utilizados para desenvolver o site. O código do backend está localizado na pasta back-imobiliariaousadia, onde você encontrará os arquivos para criação das rotas, controle dos dados e interação com o banco de dados.
 
-O diretório src contém as páginas, componentes, imagens e o arquivo de aplicação do projeto. A pasta assets armazena as imagens utilizadas, enquanto a pasta components contém os componentes reutilizáveis em diferentes partes do site. As páginas são encontradas na pasta pages, com cada página tendo seu próprio arquivo JavaScript e CSS. A pasta images contém a logo do site e outras imagens específicas. O arquivo app.js na pasta service representa a aplicação principal. 
+O plano de teste aborda aspectos importantes do aplicativo, como navegação, login e registro, ciclo de compra, manipulação de usuários, manipulação de localizações e manipulação de ofertas. É importante verificar se todas essas funcionalidades estão funcionando corretamente e se os resultados são consistentes.
+
+Com a implementação do backend, será possível realizar operações de criação, edição e manipulação de usuários, além de gerenciar as localizações e ofertas. Essas funcionalidades fornecerão uma experiência mais completa aos usuários, permitindo que eles realizem ações específicas dentro do aplicativo.
+
+É importante realizar testes abrangentes para garantir que todas as funcionalidades estejam funcionando conforme o esperado. Testar diferentes cenários, como criação e edição de usuários, alteração de status de localizações e manipulação de ofertas, ajudará a identificar e corrigir quaisquer problemas ou inconsistências no aplicativo.
 
 ## Plano de Teste
-O plano de teste tem como objetivo verificar a funcionalidade e a experiência do usuário em diferentes aspectos do aplicativo, incluindo navegação pelas páginas, acesso a casas disponíveis, interação com os agentes e ciclo de compra.
+O plano de teste tem como objetivo verificar a funcionalidade e a experiência do usuário em diferentes aspectos do aplicativo. Os testes incluem:
 
-a) **Navegação**: O usuário poderá acessar as páginas da barra de navegação, como "Home", "About Us", "Buy", "Agents" e "Login". Verificaremos se o redirecionamento ocorre corretamente e se o conteúdo das páginas é exibido adequadamente.
+a) **Navegação**: Verificar se o redirecionamento para as páginas da barra de navegação ocorre corretamente e se o conteúdo das páginas é exibido adequadamente.
 
-b) **Login e Registro**: O usuário poderá fazer login utilizando as credenciais de teste disponíveis. Será verificado se o usuário consegue acessar o perfil do cliente e do administrador. Além disso, será testado o registro de um novo usuário, garantindo que não haja duplicação de CPF.
+b) **Login e Registro**: Verificar se os usuários conseguem fazer login utilizando as credenciais corretas e se conseguem se registrar com sucesso. Testar também a criação, edição e exclusão de usuários pelo administrador.
 
-c) **Ciclo de Compra**: O usuário irá acessar a página "Buy", selecionar uma casa disponível e fazer uma oferta. Será necessário fornecer um CPF válido e um ID de casa válido (disponível ou existente). Será verificado se a oferta é enviada com sucesso.
+c) **Ciclo de Compra**: Verificar se os usuários conseguem acessar a página "Buy", selecionar uma casa disponível e fazer uma oferta. Testar a criação, edição e exclusão de ofertas.
 
-d) **Confirmação da Compra**: O administrador poderá acessar a página "Manage Offer" para visualizar todas as ofertas em negociação. O administrador terá a opção de aceitar ou recusar uma oferta, garantindo que a funcionalidade esteja correta.
+d) **Manipulação de Localizações**: Verificar se é possível criar, editar e excluir localizações. Testar também a alteração de status das localizações.
+
+e) **Manipulação de Ofertas**: Verificar se é possível criar, editar e excluir ofertas. Testar também a alteração de status das ofertas.
+
+f) **Manipulação de Usuários**: Verificar se é possível criar, editar e excluir usuários pelo perfil do administrador. Testar também a visualização e edição das informações de usuário pelo perfil do cliente.
+
+g) **Buscas com Filtros**: Verificar se a funcionalidade de busca com filtros está funcionando corretamente. Testar diferentes combinações de filtros, como número de quartos, número de banheiros, tipo de imóvel e valor estimado.
 
 ## Resultados de Teste
 Após a execução dos testes, os resultados obtidos foram os seguintes:
 
 a) **Navegação**: O redirecionamento para as páginas da barra de navegação ocorreu conforme o esperado. O conteúdo das páginas foi exibido corretamente, proporcionando uma boa experiência de navegação.
 
-b) **Login e Registro**: O login utilizando as credenciais de teste foi bem-sucedido, permitindo o acesso aos perfis de cliente e administrador. O registro de um novo usuário foi possível, sem a ocorrência de duplicação de CPF.
+b) **Login e Registro**: Os usuários conseguiram fazer login utilizando as credenciais corretas e conseguiram se registrar com sucesso. O administrador pôde criar, editar e excluir usuários. As informações de usuário puderam ser visualizadas e editadas pelo perfil do cliente.
 
-c) **Ciclo de Compra**: O usuário conseguiu acessar a página "Buy", selecionar uma casa disponível e fazer uma oferta. Ao fornecer um CPF válido e um ID de casa válido, a oferta foi enviada com sucesso.
+c) **Ciclo de Compra**: Os usuários conseguiram acessar a página "Buy", selecionar uma casa disponível e fazer uma oferta. As ofertas puderam ser criadas, editadas e excluídas com sucesso.
 
-d) **Confirmação da Compra**: O administrador pôde acessar a página "Manage Offer" e visualizar todas as ofertas em negociação. Foi possível aceitar ou recusar as ofertas, garantindo a funcionalidade correta da confirmação da compra.
+d) **Manipulação de Localizações**: As localizações puderam ser criadas, editadas e excluídas corretamente. O status das localizações pôde ser alterado sem problemas.
 
-Com base nos resultados dos testes, podemos concluir que o aplicativo permite ao usuário navegar corretamente pelas páginas da barra de navegação, realizar login e registro de usuários, seguir o ciclo de compra e realizar a confirmação da compra por parte do administrador. O aplicativo demonstrou estar funcionando conforme o esperado, proporcionando uma experiência positiva ao usuário.
+e) **Manipulação de Ofertas**: As ofertas puderam ser criadas, editadas e excluídas com sucesso. O status das ofertas pôde ser alterado corretamente.
+
+f) **Manipulação de Usuários**: O perfil do administrador permitiu a criação, edição e exclusão de usuários. As informações de usuário puderam ser visualizadas e editadas pelo perfil do cliente.
+
+g) **Buscas com Filtros**: A funcionalidade de busca com filtros foi testada com sucesso. 
+
+Com base nos resultados dos testes, podemos concluir que o aplicativo permite ao usuário navegar corretamente pelas páginas, realizar login e registro de usuários, seguir o ciclo de compra e realizar ações de manipulação de localizações, ofertas e usuários. O aplicativo demonstrou estar funcionando conforme o esperado, proporcionando uma experiência positiva e funcionalidades completas aos usuários.
 
 ## Procedimento de Build
 Durante o processo de build, é importante ter em mente os perfis de usuários disponíveis para realizar login, assim como os CPFs válidos e os IDs das casas que são considerados válidos para os testes. Abaixo estão os detalhes dos usuários e das casas disponíveis:
@@ -141,36 +167,30 @@ Durante o processo de build, é importante ter em mente os perfis de usuários d
 1. Usuários:
 
 + Cliente:
-  - Email: usuario1@example.com, Senha: senha1, CPF: 12345678900
-  - Email: usuario3@example.com, Senha: senha3, CPF: 11111111111
-  - Email: usuario4@example.com, Senha: senha4, CPF: 22222222222
-  - Email: usuario5@example.com, Senha: senha5, CPF: 33333333333
-  - Email: usuario6@example.com, Senha: senha6, CPF: 44444444444
-  - Email: usuario8@example.com, Senha: senha8, CPF: 66666666666
+  - Email: fernada@example.com, Senha: fernanda123
+  - Email: ricardo@example.com, Senha: ricardo123
 
 + Administrador:
-  - Email: usuario2@example.com, Senha: senha2, CPF: 98765432100
-  - Email: usuario7@example.com, Senha: senha7, CPF: 55555555555
+  - Email: daniel@example.com, Senha: daniel123
+  - Email: joao.silva@example.com, Senha: joao123
+  - Email: maria.oliveira@example.com, Senha: maria123
+  - Email: pedro.almeida@example.com, Senha: pedro123
+  - Email: ana.pereira@example.com, Senha: ana123
+  - Email: luiz.oliveira@example.com, Senha: luiz123
 
 2. Casas:
-  - ID: 01234567, Status: Vendida
-  - ID: 01234568, Status: Disponível
-  - ID: 01234569, Status: Disponível
-  - ID: 01234578, Status: Disponível
-  - ID: 01234579, Status: Disponível
-  - ID: 01234589, Status: Vendida
-  - ID: 01235678, Status: Em negociação
-  - ID: 01234678, Status: Em negociação
-  - ID: 01234679, Status: Em negociação
+  - ID: 649f230958381f7f158140d4, Status: Em negociação
+  - ID: 649f231558381f7f158140d6, Status: Vendida
+  - ID: 649f232258381f7f158140d8, Status: Disponível
+  - ID: 649f232f58381f7f158140da, Status: Disponível
+  - ID: 649f233a58381f7f158140dc, Status: Disponível
+  - ID: 649f234458381f7f158140de, Status: Disponivel
+  - ID: 649f235258381f7f158140e0, Status: Disponivel
 
-## Limitações
-
-Durante o desenvolvimento do projeto, foram identificadas algumas limitações que ainda precisam ser abordadas. Essas limitações são as seguintes:
-
-1. **Mudança direta dos status no banco de dados**: Atualmente, não é possível realizar uma mudança direta dos status das casas no banco de dados. Isso significa que as atividades de edição do administrador e dos perfis de usuário ainda não estão ocorrendo. Essa funcionalidade será implementada no milestone 3 do projeto, para permitir que as ações de edição, como atualização do status das casas, sejam realizadas corretamente.
-
-2. **Funcionalidade limitada da barra de busca**: A barra de busca nas páginas do site ainda não está funcionando corretamente. Embora a interface esteja presente, a funcionalidade de busca ainda não foi totalmente implementada. Os resultados da busca podem não ser exibidos corretamente ou podem não retornar os resultados esperados. Essa limitação será abordada no milestone 3, onde a barra de busca será aprimorada para fornecer resultados precisos e relevantes.
-
-Essas limitações foram identificadas durante o desenvolvimento do projeto e estão planejadas para serem resolvidas no milestone 3. O objetivo é aprimorar a funcionalidade do aplicativo, permitindo a edição adequada dos status no banco de dados, tanto pelo administrador quanto pelos perfis de usuário, e garantir que a barra de busca funcione corretamente, fornecendo resultados precisos aos usuários.
 
 ## Comentários
+Após a implementação do projeto da corretora de imóveis, todas as funções requeridas foram implementadas com sucesso. O aplicativo agora permite que os usuários realizem ações como navegação pelas páginas, login e registro, ciclo de compra, manipulação de localizações, manipulação de ofertas e manipulação de usuários.
+
+Durante as etapas anteriores do projeto, foram realizadas revisões e testes, levando a alterações na visualização do site para melhorar a experiência do usuário. Com base nos comentários e feedback recebidos nessas etapas anteriores, foram feitas melhorias significativas na interface do usuário, fluxo de navegação e usabilidade geral do aplicativo.
+
+As revisões e melhorias incluíram aprimoramentos na barra de navegação, layout das páginas, exibição de informações, usabilidade dos formulários, feedback visual e outras áreas relevantes do aplicativo. As alterações foram implementadas com o objetivo de fornecer uma experiência mais intuitiva, agradável e eficiente para os usuários ao interagirem com o site da corretora de imóveis.
