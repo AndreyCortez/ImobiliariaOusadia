@@ -10,13 +10,13 @@ const {
 
 const handleUpload = require('../controllers/upload')
 
-const authenticateUser = require('../middleware/Auth');
+const {authenticateUser, authenticateAdmin} = require('../middleware/Auth');
 
 const userRouter = express.Router();
 
 userRouter.post('/upload', handleUpload);
 userRouter.post('/', createUser);
-userRouter.get('/', getAllUsers);
+userRouter.get('/', authenticateUser, authenticateAdmin, getAllUsers);
 userRouter.get('/:id', getUserById);
 userRouter.put('/:id', updateUser);
 userRouter.delete('/:id', deleteUser);

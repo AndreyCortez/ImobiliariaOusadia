@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import './RegisterForm.css';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
-import { users } from '../../data';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import axios from 'axios';
 
 import { backendUrl } from '../../config';
+import { validateCpf, validatePhone } from '../../validationUtils';
 
 const RegistrationForm = () => {
   const [fullName, setFullName] = useState('');
@@ -19,6 +19,7 @@ const RegistrationForm = () => {
   const [phone, setPhone] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
 
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
@@ -41,7 +42,7 @@ const RegistrationForm = () => {
   };
 
   const handleCpfChange = (event) => {
-    const inputCpf = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    const inputCpf = event.target.value.replace(/\D/g, ''); // Remove all non-numeric characters
     setCpf(inputCpf);
   };
 
@@ -51,7 +52,9 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
+    const errors = {};
+  
     if (
       fullName === '' ||
       email === '' ||
@@ -63,7 +66,27 @@ const RegistrationForm = () => {
     ) {
       setPopupContent('Please fill in all fields');
       setShowPopup(true);
-    } else {
+      return;
+    } 
+    if (!validateCpf(cpf)) {
+      errors.cpf = 'invalid CPF';
+    } 
+    if (!validatePhone(phone)) {
+      errors.phone = 'invalid phone number';
+    } 
+    if (email !== emailVerification) {
+      errors.emailVerification = 'Emails do not match';
+    } 
+    if (password !== passwordVerification) {
+      errors.passwordVerification = 'Passwords do not match';
+    }
+  
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      console.log(errors)
+      return;
+    } else{
+      console.log("deu ruim");
       try {
         // Send the POST request to the backend
         const response = await axios.post(backendUrl + '/users', {
@@ -72,7 +95,7 @@ const RegistrationForm = () => {
           cpf,
           phone,
           password,
-          imgProfile: "default_user.avif",
+          imgProfile: 'default_user.avif',
           isAdmin: false, // Assuming isAdmin is set to false for regular users
         });
     
@@ -89,39 +112,37 @@ const RegistrationForm = () => {
         setPasswordVerification('');
         setCpf('');
         setPhone('');
-      } catch (error) {
-        // Handle the error
-        console.error('Error registering user:', error);
-        setPopupContent('Error registering user');
-        setShowPopup(true);
-      }
+        setFieldErrors({});
+    } catch (error) {
+      // Handle the error
+      console.error('Error registering user:', error);
+      setPopupContent('Error registering user');
+      setShowPopup(true);
+    }    
   }
-  };
   
 
+
+  };
+  
   return (
     <div className="RegistrationForm">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="fullName">Full Name:</label>
-          <br />
-          <input
-            type="text"
-            id="fullName"
-            value={fullName}
-            onChange={handleFullNameChange}
-          />
-        </div>
+      <div>
+        <label htmlFor="fullName">Full Name:</label>
+        <br />
+        <input
+          type="text"
+          id="fullName"
+          value={fullName}
+          onChange={handleFullNameChange}
+        />
+      </div>
         <div>
           <label htmlFor="email">Email:</label>
           <br />
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
+          <input type="email" id="email" value={email} onChange={handleEmailChange} />
         </div>
         <div>
           <label htmlFor="emailVerification">Verify Email:</label>
@@ -132,16 +153,13 @@ const RegistrationForm = () => {
             value={emailVerification}
             onChange={handleEmailVerificationChange}
           />
+          {fieldErrors.emailVerification && (
+          <span className="error">{fieldErrors.emailVerification}</span>)}
         </div>
         <div>
           <label htmlFor="password">Password:</label>
           <br />
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
+          <input type="password" id="password" value={password} onChange={handlePasswordChange} />
         </div>
         <div>
           <label htmlFor="passwordVerification">Verify Password:</label>
@@ -152,35 +170,31 @@ const RegistrationForm = () => {
             value={passwordVerification}
             onChange={handlePasswordVerificationChange}
           />
+                    {fieldErrors.passwordVerification && (
+          <span className="error">{fieldErrors.passwordVerification}</span>)}
         </div>
         <div>
           <label htmlFor="cpf">CPF:</label>
           <br />
-          <input
-            type="text"
-            id="cpf"
-            value={cpf}
-            onChange={handleCpfChange}
-          />
+          <input type="text" id="cpf" value={cpf} onChange={handleCpfChange} />
+          {fieldErrors.cpf && (
+          <span className="error">{fieldErrors.cpf}</span>)}
         </div>
         <div>
           <label htmlFor="phone">Phone:</label>
           <br />
-          <input
-            type="text"
-            id="phone"
-            value={phone}
-            onChange={handlePhoneChange}
-          />
+          <input type="text" id="phone" value={phone} onChange={handlePhoneChange} />
+          {fieldErrors.phone && (
+          <span className="error">{fieldErrors.phone}</span>)}
         </div>
         <div className="submit-button">
           <input type="submit" value="Register" />
         </div>
 
         <div className="submit-button">
-        <Link to="/signin">
-          <input type="submit" value="Sign In" />
-        </Link>
+          <Link to="/signin">
+            <input type="submit" value="Sign In" />
+          </Link>
         </div>
       </form>
       <Popup open={showPopup} onClose={() => setShowPopup(false)}>
