@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import TableUsers from "../components/TableUsers/TableUsers";
-import SearchBar from "../components/SearchBar/SearchBar";
 import axios from "axios";
 import { backendUrl } from "../config.js";
 import "./ManageLocation.css";
@@ -52,7 +51,6 @@ const ManageUsers = ({ type }) => {
       <div className="manage-location-container">
         <h2>USERS</h2>
 
-        <SearchBar onSearch={handleSearch} text="search by Name or email" />
         <TableUsers
           data={filteredUsersData}
         />

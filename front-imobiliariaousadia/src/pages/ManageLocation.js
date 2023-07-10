@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import Footer from '../components/Footer/Footer.js';
 import Navbar from '../components/Navbar/Navbar.js';
 import HeaderPage from '../components/HeaderPage/HeaderPage.js';
-import AddProperty from '../components/AddProperty/AddProperty.js'
-import Button from '../components/Button/Button.js';
-import SearchBar from '../components/SearchBar/SearchBar.js';
+import AddProperty from '../components/AddProperty/AddProperty.js';
 import 'reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 
@@ -26,7 +24,6 @@ const ManageLocation = () => {
   };
 
 
-  const searchText = "Search by ID or address..";
 
   return (
     <div>
@@ -34,7 +31,6 @@ const ManageLocation = () => {
       <div className="manage-location-container">
         <HeaderPage title={"Manage Location"} />
         <h2>Property</h2>
-        <SearchBar onSearch={handleSearch} text={searchText} />
         <TableProperties />
         <button className="button" onClick={handleAddProperty}>Add new Property</button>
       </div>

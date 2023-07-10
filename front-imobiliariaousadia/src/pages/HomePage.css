@@ -9,3 +9,17 @@
     align-items: center;
   }
   
+  .filtered-houses-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .filtered-houses-container > div {
+    margin: 20px;
+  }
+  
