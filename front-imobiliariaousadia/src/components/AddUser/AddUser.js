@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { backendUrl } from '../../config';
+import './AddUser.css';
+
 
 const AddUser = ({ userType }) => {
   const [name, setName] = useState('');
